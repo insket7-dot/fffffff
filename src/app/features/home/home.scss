@@ -1,0 +1,22 @@
+@use "@/assets/styles/px-to-rem.scss" as *;
+
+.product-card {
+  @include px-to-rem(width, 160px);
+  @include px-to-rem(height, 200px);
+  @include px-to-rem(font-size, 18px);
+  @include margin(8px 0);
+  @include padding(8px);
+  @include border(1px, solid, #ccc);
+  @include px-to-rem(border-radius, 4px);
+  text-align: center;
+}
+
+.button {
+  @include px-to-rem(width, 120px);
+  @include px-to-rem(height, 40px);
+  @include px-to-rem(font-size, 14px);
+  background-color: #007bff;
+  color: white;
+  @include border(0);
+  @include px-to-rem(border-radius, 4px);
+}

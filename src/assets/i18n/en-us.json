@@ -1,0 +1,166 @@
+{
+    "app": {
+        "common": {
+            "back.button": "Return",
+            "cancel": "Cancel",
+            "close": "Close",
+            "confirm": "Confirm",
+            "confirmMessage": "Are you sure to perform this action?",
+            "confirmTitle": "Please confirm",
+            "dateFormat": "MM/dd/yyyy",
+            "dateTimeFormat": "MM/dd/yyyy hh:mm:ss a",
+            "delete": "Delete",
+            "error": "Error",
+            "info": "Info",
+            "loading": "Loading...",
+            "network.error": "Service request failed, please check whether the network is available.",
+            "noData": "No Data",
+            "request.failure": "Request failed",
+            "request.type.error": "Request address type error, data interface request only supports DATA type.",
+            "request.waiting": "Requesting, please wait...",
+            "save": "Save",
+            "search": "Search",
+            "success": "Success",
+            "title": "Cross Platform App",
+            "toast.error": "Error",
+            "toast.exit": "Return again and exit this application",
+            "toast.info": "Prompt",
+            "toast.success": "Success",
+            "toast.warn": "Warning",
+            "unused": "Unused",
+            "used": "Used",
+            "warning": "Warning"
+        },
+        "home": {
+            "actions": {
+                "searchButton": "Search Dishes",
+                "searchKeyword": "Search Keyword",
+                "searchPlaceholder": "Please enter product/tag",
+                "syncMenu": "Worker: Sync Latest Menu"
+            },
+            "description": "This is an independent home component.",
+            "messages": {
+                "searchComplete": "Search complete, keyword \"{{keyword}}\", matched {{count}} items",
+                "searchFailed": "Menu search failed: {{error}}",
+                "syncFailed": "Menu sync failed: {{error}}",
+                "syncSuccess": "Menu sync successful, {{count}} items stored in SQLite.",
+                "syncing": "Syncing menu data to local database..."
+            },
+            "title": "Home"
+        },
+        "language": {
+            "en-us": "English",
+            "select": "Select Language",
+            "zh-cn": "简体中文",
+            "zh-tw": "繁體中文"
+        },
+        "material": {
+            "datepicker": {
+                "close": "Close calendar",
+                "open": "Open calendar"
+            },
+            "select": {
+                "placeholder": "Please select"
+            }
+        },
+        "menu": {
+            "noData": "No local menu data available, please process and cache on the home page first.",
+            "title": "Menu Items"
+        },
+        "navigation": {
+            "home": "Home",
+            "menu": "Menu",
+            "scan": "Start Scanning",
+            "users": "User Management"
+        },
+        "system": {
+            "database": {
+                "initSuccess": "Database initialized successfully",
+                "loadFailed": "Load failed",
+                "notInitialized": "Database not initialized",
+                "ready": "Database is ready"
+            }
+        },
+        "users": {
+            "add": "Add User",
+            "delete": "Delete User",
+            "deleteSelected": "Delete Selected Users",
+            "dialog": {
+                "add": "Add User",
+                "batchDeleteMessage": "Confirm deleting {{count}} selected users?",
+                "batchDeleteTitle": "Delete Selected Users",
+                "deleteMessage": "Confirm deleting user {{name}}?",
+                "deleteTitle": "Delete User",
+                "edit": "Edit User"
+            },
+            "edit": "Edit User",
+            "filters": {
+                "birthdayEnd": "Birthday To",
+                "birthdayStart": "Birthday From",
+                "endDatePlaceholder": "Select end date",
+                "endDateTitle": "End Date",
+                "gender": "Gender",
+                "genderAll": "All",
+                "keyword": "Keyword (ID/Name/Email/Phone)",
+                "keywordPlaceholder": "Type and press Enter to search",
+                "startDatePlaceholder": "Select start date",
+                "startDateTitle": "Start Date"
+            },
+            "form": {
+                "birthday": "Birthday",
+                "email": "Email",
+                "gender": "Gender",
+                "gender.female": "Female",
+                "gender.male": "Male",
+                "gender.other": "Other",
+                "gender.placeholder": "Not selected",
+                "name": "Name",
+                "phone": "Phone"
+            },
+            "resetFilters": "Reset Filters",
+            "table": {
+                "actions": "Actions",
+                "birthday": "Birthday",
+                "created_at": "Created At",
+                "email": "Email",
+                "gender": "Gender",
+                "id": "ID",
+                "name": "Name",
+                "phone": "Phone"
+            },
+            "title": "User Management"
+        }
+    },
+    "page": {
+        "model1": "Normal Mode",
+        "model2": "Accessibility Mode",
+        "startBtn": "ORDER START ",
+        "text1": "Tap to start you order",
+        "tip": "Select a Dining Location",
+        "way1": "Dine In",
+        "way2": "Take Out",
+        "tip2": "Reminder",
+        "tip3": "Due to inactivity for a long time, the system will return to the homepage in {{time}} seconds",
+        "storeCode": "Store Code",
+        "storeCodeRequired": "Store Code cannot be empty",
+        "authCode": "Authorization Code",
+        "authCodeRequired": "Authorization Code cannot be empty",
+        "exitAccessibilityModel": "Exit Accessibility Mode",
+        "selectWay": "Please select a dining method",
+        "password": "Password",
+        "passwordRequired": "Password cannot be empty",
+        "resetConfig": "Reset settings",
+        "resetSystem": "Reset the ordering system",
+        "loginOut": "Exit the ordering system",
+        "continue":"Whether to place an order",
+        "orderDetails":"Order Details",
+        "continueText":"Continue",
+        "addtip":"Add Tip",
+        "percentage":"percentage",
+        "fixed":"fixed"
+
+
+
+
+    }
+}

@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/* 全局重置 */
+// 基础重置
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+// 移动端滚动优化
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 动态根字体大小 - 针对 375px 设计稿优化 */
+html {
+    font-size: 16px; /* 桌面端基准 */
+    
+    /* 平板设备 */
+    @media (max-width: 1024px) {
+        font-size: 15px;
+    }
+    
+    /* 手机设备 - 375px 设计稿基准 */
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+    
+    /* 小屏手机 */
+    @media (max-width: 480px) {
+        font-size: 13px;
+    }
+    
+    /* 375px 标准尺寸 - 完美匹配设计稿 */
+    @media (max-width: 375px) {
+        font-size: 14px;
+    }
+    
+    /* 超小屏手机 */
+    @media (max-width: 320px) {
+        font-size: 12px;
+    }
+}

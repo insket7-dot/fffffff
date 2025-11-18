@@ -1,0 +1,127 @@
+// ========================================
+// 响应式 px 到 rem 转换 Mixin
+// ========================================
+
+/* px 到 rem 转换函数 */
+@function px-to-rem($px, $base-font-size: 14px) {
+    @return ($px / $base-font-size) * 1rem;
+}
+
+/* 基础 px 到 rem 转换 mixin */
+@mixin px-to-rem($properties, $px-values, $important: false) {
+    @if type-of($properties) == list {
+        @each $property in $properties {
+            @include px-to-rem($property, $px-values, $important);
+        }
+    } @else {
+        @if type-of($px-values) == list {
+            $rem-values: ();
+            @each $value in $px-values {
+                @if type-of($value) == number and unit($value) == px {
+                    $rem-values: append($rem-values, px-to-rem($value));
+                } @else {
+                    $rem-values: append($rem-values, $value);
+                }
+            }
+            #{$properties}: $rem-values if($important, !important, null);
+        } @else {
+            @if type-of($px-values) == number and unit($px-values) == px {
+                #{$properties}: px-to-rem($px-values) if($important, !important, null);
+            } @else {
+                #{$properties}: $px-values if($important, !important, null);
+            }
+        }
+    }
+}
+
+/* 专门处理 border 的 mixin */
+@mixin border($width, $style: solid, $color: #000, $important: false) {
+    @if type-of($width) == number and unit($width) == px {
+        border: px-to-rem($width) $style $color if($important, !important, null);
+    } @else {
+        border: $width $style $color if($important, !important, null);
+    }
+}
+
+/* 专门处理复合属性的 mixin */
+@mixin border-width($widths, $important: false) {
+    @include px-to-rem(border-width, $widths, $important);
+}
+
+@mixin margin($values, $important: false) {
+    @include px-to-rem(margin, $values, $important);
+}
+
+@mixin padding($values, $important: false) {
+    @include px-to-rem(padding, $values, $important);
+}
+
+/* 字体专用响应式 mixin */
+@mixin responsive-font-size($px-values, $important: false) {
+    @include px-to-rem(font-size, $px-values, $important);
+    
+    @media (max-width: 768px) {
+        @include px-to-rem(font-size, $px-values, $important);
+    }
+    
+    @media (max-width: 480px) {
+        @include px-to-rem(font-size, $px-values, $important);
+    }
+}
+
+/* 高级响应式 mixin - 基于视口宽度 */
+@mixin viewport-responsive($property, $mobile-px, $desktop-px: $mobile-px, $important: false) {
+    @include px-to-rem($property, $desktop-px, $important);
+    
+    @media (max-width: 768px) {
+        @include px-to-rem($property, $mobile-px, $important);
+    }
+}
+
+/* 流式布局 mixin - 真正的响应式 */
+@mixin fluid-size($property, $min-px, $max-px, $min-vw: 320px, $max-vw: 1200px) {
+    #{$property}: px-to-rem($min-px);
+    
+    @media (min-width: $min-vw) and (max-width: $max-vw) {
+        #{$property}: calc(
+            #{px-to-rem($min-px)} + 
+            #{($max-px - $min-px)} * 
+            (100vw - #{$min-vw}) / 
+            #{$max-vw - $min-vw}
+        );
+    }
+    
+    @media (min-width: $max-vw) {
+        #{$property}: px-to-rem($max-px);
+    }
+}
+
+/* 快捷 mixin - 常用属性的简化版本 */
+@mixin size($width, $height: $width) {
+    @include px-to-rem(width, $width);
+    @include px-to-rem(height, $height);
+}
+
+@mixin spacing($top, $right: null, $bottom: null, $left: null) {
+    @if $right == null and $bottom == null and $left == null {
+        @include px-to-rem(margin, $top);
+    } @else {
+        @include px-to-rem(margin, $top $right $bottom $left);
+    }
+}
+
+@mixin padding($top, $right: null, $bottom: null, $left: null) {
+    @if $right == null and $bottom == null and $left == null {
+        @include px-to-rem(padding, $top);
+    } @else {
+        @include px-to-rem(padding, $top $right $bottom $left);
+    }
+}
+
+@mixin border-radius($radius) {
+    @include px-to-rem(border-radius, $radius);
+}
+
+@mixin font-size($size) {
+    @include responsive-font-size($size);
+}
