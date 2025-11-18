@@ -2,8 +2,8 @@
 // 响应式 px 到 rem 转换 Mixin
 // ========================================
 
-/* px 到 rem 转换函数 */
-@function px-to-rem($px, $base-font-size: 14px) {
+/* px 到 rem 转换函数 - 基于 375px 设计稿，37.5px 基准 */
+@function px-to-rem($px, $base-font-size: 37.5px) {
     @return ($px / $base-font-size) * 1rem;
 }
 
