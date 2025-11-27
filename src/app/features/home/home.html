@@ -1,32 +1,72 @@
-<ion-content>
-  <!-- 大布局容器 -->
-  <ion-grid>
-    <ion-row>
-      <!-- 左侧分类列表 -->
-      <ion-col size="12" size-md="3">
-        <div class="category-list product-card">
-          <p>分类 1</p>
-          <p>分类 2</p>
-          <p>分类 3</p>
+<ion-content class="ion-padding">
+    <div class="page">
+        <!-- 顶部状态栏 -->
+        <div class="status-bar">
+            <div class="status-left">
+                <span class="time">{{ getCurrentTime() }}</span>
+                <img src="assets/image/wifi-icon.png" alt="WiFi" class="wifi-icon" />
+                <img src="assets/image/battery-icon.png" alt="Battery" class="battery-icon" />
+            </div>
+            <div class="status-right">
+                <button class="icon-button">
+                    <img src="assets/image/scan-icon.png" alt="Scan" />
+                </button>
+                <button class="icon-button">
+                    <img src="assets/image/notification-icon.png" alt="Notification" />
+                </button>
+                <div class="language-switch">
+                    <span class="language-text">English</span>
+                    <img src="assets/image/arrow-icon.png" alt="Arrow" class="arrow-icon" />
+                </div>
+            </div>
         </div>
-      </ion-col>
 
-      <!-- 右侧商品列表 -->
-      <ion-col size="12" size-md="9">
-        <div class="product-card">
-          <img src="https://via.placeholder.com/150" alt="商品图" style="width:100px; height:100px;" />
-          <h3>商品名</h3>
-          <p>￥99.00</p>
-          <button class="button no-rem">加入购物车</button>
+        <!-- 店铺信息卡片 -->
+        <div class="store-card">
+            <div class="store-header">
+                <div class="store-info">
+                    <h2 class="store-name">Yaki House</h2>
+                    <p class="store-address">123 Main St, New York, NY 10001</p>
+                </div>
+                <img src="assets/image/store-image.png" alt="Store" class="store-image" />
+            </div>
+            <p class="store-tagline">Authentic Japanese Cuisine</p>
         </div>
 
-        <div class="product-card">
-          <img src="https://via.placeholder.com/150" alt="商品图" style="width:100px; height:100px;" />
-          <h3>商品名</h3>
-          <p>￥199.00</p>
-          <button class="button no-rem">加入购物车</button>
+        <!-- 人数选择区域 -->
+        <div class="people-section">
+            <h3 class="section-title">How many people?</h3>
+            <div class="people-grid">
+                @for (num of peopleOptions; track num) {
+                    <div
+                        class="people-option"
+                        [class.selected]="selectedPeople === num"
+                        (click)="selectPeople(num)"
+                    >
+                        <span class="people-text">{{ num }}</span>
+                    </div>
+                }
+            </div>
+            <div class="custom-people">
+                <input
+                    type="number"
+                    class="custom-input"
+                    placeholder="Enter number"
+                    [(ngModel)]="customPeopleValue"
+                    (ngModelChange)="selectCustomPeople()"
+                />
+                <span class="unit-text">People</span>
+            </div>
         </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
+        <!-- 开始点餐按钮 -->
+        <button class="start-order-button" [disabled]="!selectedPeople" (click)="startOrder()">
+            Start Order
+        </button>
+
+        <!-- 底部信息 -->
+        <div class="footer-info">
+            <p class="footer-text">© 2024 Yaki House. All rights reserved.</p>
+        </div>
+    </div>
 </ion-content>

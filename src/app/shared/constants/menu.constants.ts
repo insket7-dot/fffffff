@@ -1,0 +1,109 @@
+import { MenuConstantsItem } from '@app/shared/types/menu.shared.types';
+
+/**
+ * @desc 售罄恢复状态
+ */
+export enum StockStatusEnums {
+    // 售罄
+    SOLD_OUT = '1',
+    // 售卖
+    SELLING = '0',
+}
+
+/**
+ * @desc 上下架状态
+ */
+export enum UpLowStatusEnum {
+    // 上架
+    UP = '0',
+    // 下架
+    LOW = '1',
+}
+
+/**
+ * @desc 菜品数量限制
+ */
+export enum ProductLimit {
+    // 不限制
+    UNLIMITED = -1,
+    // 限制最小数量
+    LIMIT = 1,
+    // 限制最大 数量
+    LIMIT_MAX = 99,
+}
+
+/**
+ * @desc 分类操作
+ */
+export enum CategoryOperation {
+    //上一个
+    PREV = 'prev',
+    // 下一个
+    NEXT = 'next',
+}
+
+/**
+ * @desc 商品类型
+ */
+export enum ProductType {
+    // 单品
+    PRODUCT = '1',
+    // 套餐
+    COMBO = '2',
+    // 餐盒费
+    BOX = '11',
+}
+
+/**
+ * @desc 菜品类型枚举
+ */
+export enum MenuType {
+    // 普通模式
+    NORMAL = 'Normal',
+    // 儿童模式
+    ACCESSIBILITY = 'Accessibility',
+}
+
+/**
+ * @desc 点餐模式枚举 1 外卖 2 自取 3 堂食
+ */
+export enum OrderMode {
+    // 堂食
+    DINE_IN = '3',
+    // 自取
+    TAKE_OUT = '2',
+    // 外卖
+    DELIVERY = '1',
+}
+
+/**
+ * @desc 点餐模式
+ */
+export const wayList: MenuConstantsItem[] = [
+    {
+        type: OrderMode.DINE_IN,
+        name: 'page.way1',
+        icon: '/assets/image/dinein.png',
+    },
+    {
+        type: OrderMode.TAKE_OUT,
+        name: 'page.way2',
+        icon: '/assets/image/takeout.png',
+    },
+];
+
+/**
+ * @desc 模式列表
+ */
+export const modeList: MenuConstantsItem[] = [
+    {
+        type: MenuType.NORMAL,
+        name: 'page.model1',
+        icon: '/assets/image/icon_mr2.png',
+    },
+    {
+        type: MenuType.ACCESSIBILITY,
+        name: 'page.model2',
+        icon: '/assets/image/Acc.png',
+    },
+];

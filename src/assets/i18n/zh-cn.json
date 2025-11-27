@@ -1,5 +1,14 @@
 {
     "app": {
+        "weekday": {
+            "0": "周日",
+            "1": "周一",
+            "2": "周二",
+            "3": "周三",
+            "4": "周四",
+            "5": "周五",
+            "6": "周六"
+        },
         "common": {
             "back.button": "返回",
             "cancel": "取消",
@@ -21,7 +30,7 @@
             "save": "保存",
             "search": "搜索",
             "success": "成功",
-            "title": "跨平台应用",
+            "title": "Yaki",
             "toast.error": "错误",
             "toast.exit": "再次返回退出本应用",
             "toast.info": "提示",
@@ -29,7 +38,12 @@
             "toast.warn": "警告",
             "unused": "未用完",
             "used": "已用完",
-            "warning": "警告"
+            "warning": "警告",
+            "starting": "起",
+            "total": "合计",
+            "order": "下单",
+            "versionNumber": "版本号",
+            "deviceCode": "设备编码"
         },
         "home": {
             "actions": {
@@ -129,35 +143,97 @@
                 "phone": "手机"
             },
             "title": "用户管理"
+        },
+        "order": {
+            "total": "总数量{{num}}个",
+            "confirmTip": "欢迎来到 Yaki！我们已经准备就绪，期待为您奉上美味的食物和贴心的服务。",
+            "confirmPlaceOrder": "确认下单嘛？"
+        },
+        "login": {
+            "pleaseEnterStoreCode": "请输入门店编码",
+            "pleaseEnterAuthCode": "请输入授权码",
+            "pleaseEnter8DigitAuthCode": "请输入8位授权码"
+        },
+        "tip": {
+            "clearSettingFailed": "清除设置失败，请重试",
+            "businessHours": {
+                "cacheNotFound": "未找到营业时间缓存数据",
+                "valueNotFound": "未找到 {{value}} 的营业时间数据"
+            }
+        },
+        "version": {
+            "update": {
+                "newest": "已是最新版本",
+                "invalid": "版本升级服务不可用",
+                "latest": "发现新版本({{value}})，是否更新？",
+                "success": "下载更新包成功，是否立即安装？",
+                "failed": "下载更新包失败，请重试。"
+            }
         }
-
     },
     "page": {
-            "model1": "普通模式",
-            "model2": "无障碍模式",
-            "startBtn": "开始点餐",
-            "text1": "点击开始点餐",
-            "tip": "选择点餐方式",
-            "way1": "堂食",
-            "way2": "外带",
-            "tip2": "提示",
-            "tip3": "由于长时间无操作，系统将在 {{time}} 秒内返回主页",
-            "storeCode": "门店编码",
-            "storeCodeRequired": "门店编码不能为空",
-            "authCode": "授权码",
-            "authCodeRequired": "授权码不能为空",
-            "exitAccessibilityModel": "退出无障碍模式",
-            "selectWay": "请选择点餐方式",
-            "password": "密码",
-            "passwordRequired": "密码不能为空",
-            "resetConfig": "重置设置",
-            "resetSystem": "重置点餐系统",
-            "loginOut": "退出点餐系统",
-            "continue":"是否下单",
-            "orderDetails":"订单详情",
-            "continueText":"继续点餐",
-            "addtip":"添加小费",
-            "percentage":"比例",
-            "fixed":"固定"
+        "model1": "普通模式",
+        "model2": "无障碍模式",
+        "startBtn": "开始点餐",
+        "text1": "点击开始点餐",
+        "tip": "选择点餐方式",
+        "way1": "堂食",
+        "way2": "外带",
+        "tip2": "提示",
+        "tip3": "由于长时间无操作，系统将在 {{time}} 秒内返回主页",
+        "storeCode": "门店编码",
+        "storeCodeRequired": "门店编码不能为空",
+        "authCode": "授权码",
+        "authCodeRequired": "授权码不能为空",
+        "exitAccessibilityModel": "退出无障碍模式",
+        "selectWay": "请选择点餐方式",
+        "password": "密码",
+        "passwordRequired": "密码不能为空",
+        "resetConfig": "重置设置",
+        "resetSystem": "重置点餐系统",
+        "loginOut": "退出点餐系统",
+        "continue": "是否下单",
+        "orderDetails": "订单详情",
+        "continueText": "继续点餐",
+        "addtip": "添加小费",
+        "percentage": "比例",
+        "fixed": "固定",
+        "clear": "清除",
+        "items": "总数",
+        "clearAll": "请确认是否清除购物车所有菜品?"
+    },
+    "menu": {
+        "detail": {
+            "grill": {
+                "title": "加料",
+                "required": "请选择加料"
+            },
+            "spec": {
+                "title": "规格",
+                "required": "请选择规格"
+            },
+            "addCart": "加入购物车",
+            "combo": {
+                "required": "请选择轮次",
+                "title": "轮次组"
+            }
+        },
+        "count": "数量",
+        "cart": {
+            "deleteTip": "确定删除商品嘛？",
+            "addRequired": "请加购商品",
+            "busTimeTip": "当前门店未营业，请在营业时间内下单",
+            "soldOutTip": "以下商品已售罄/下架，请删除\n {{value}}"
         }
+    },
+    "submit": {
+        "backToHome": "返回首页",
+        "success_text1": "订单提交成功",
+        "success_text2": "请到前台付款",
+        "totalTip": "小费合计",
+        "tip": "小费",
+        "orderNumber": "订单号",
+        "takeNo": "取餐号",
+        "orderAmount": "订单金额"
+    }
 }
