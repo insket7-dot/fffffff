@@ -57,53 +57,53 @@ import { Subject, takeUntil } from 'rxjs';
                 font-family: Arial, sans-serif;
             }
 
-            /* 下拉按钮样式 - 带圆角 */
+            /* 下拉按钮：包含地球图标和当前语言 */
             .dropdown-button {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 6px 0px;
-                background-color: #ffffff;
-                border: 1px solid #e0e0e0;
-                border-radius: 8px; /* 圆角效果 */
+                padding: 6px 8px;
+                background-color: transparent;
+                border: none;
+                border-radius: 4px;
                 cursor: pointer;
                 transition: all 0.2s ease;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             }
 
             /* 展开状态的按钮样式 */
             .dropdown-button.expanded {
-                border-bottom-left-radius: 0; /* 展开时底部左圆角取消 */
-                border-bottom-right-radius: 0; /* 展开时底部右圆角取消 */
-                border-color: #ccc;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                background-color: rgba(255, 255, 255, 0.9);
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
 
             .globe-icon {
-                margin-right: 8px;
-                font-size: 16px;
+                margin-right: 4px;
+                font-size: 14px;
             }
 
             .current-language {
                 flex: 1;
                 text-align: left;
                 font-size: 14px;
-                color:var(--app-primary-color);
-                 width: 100%;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
+                color: #ffffff;
+                font-weight: 500;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .arrow-icon {
-                margin-left: 8px;
+                margin-left: 4px;
                 font-size: 12px;
                 transition: transform 0.2s ease;
-                padding-right:4px;
+                padding-right: 2px;
 
                 img {
                     width: 12px;
                     height: 6px;
+                    filter: brightness(0) invert(1); /* 将箭头图标改为白色 */
                 }
             }
 
@@ -116,8 +116,8 @@ import { Subject, takeUntil } from 'rxjs';
                 background-color: #ffffff;
                 border: 1px solid #e0e0e0;
                 border-top: none;
-                border-bottom-left-radius: 8px; /* 底部左圆角 */
-                border-bottom-right-radius: 8px; /* 底部右圆角 */
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 z-index: 100;
                 max-height: 200px;
@@ -135,7 +135,8 @@ import { Subject, takeUntil } from 'rxjs';
 
             .dropdown-option:hover,
             .dropdown-option.active {
-                background-color: #f5f5f5;
+                background-color: #fff3ed;
+                color: #ff6b35;
             }
 
             /* 滚动条样式优化 */
@@ -144,7 +145,7 @@ import { Subject, takeUntil } from 'rxjs';
             }
 
             .dropdown-options::-webkit-scrollbar-thumb {
-                background-color: #ddd;
+                background-color: #ff6b35;
                 border-radius: 3px;
             }
         `,

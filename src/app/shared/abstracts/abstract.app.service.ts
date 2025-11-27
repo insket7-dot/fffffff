@@ -61,7 +61,7 @@ export abstract class AbstractAppService extends AbstractService {
         const data =
             deviceIdLoadStatus === DeviceIdLoadStatus.SKIPPED
                 ? body
-                : { ...body, deviceCode: this.modelStateService.deviceIdValue() };
+                : { ...body, storeCode: this.modelStateService.storeCodeValue() };
 
         if (!['HEART_BEAT'].includes(url.name) && !this.modelStateService.silentLoadValue()) {
             this.eventManager.publish(AppEvent.SHOW_GLOBAL_LOADING, true);

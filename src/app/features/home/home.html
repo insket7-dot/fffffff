@@ -1,41 +1,37 @@
-<ion-content class="ion-padding">
+<ion-content class="ion-no-padding">
     <div class="page">
         <!-- 顶部状态栏 -->
         <div class="status-bar">
-            <div class="status-left">
-                <span class="time">{{ getCurrentTime() }}</span>
-                <img src="assets/image/wifi-icon.png" alt="WiFi" class="wifi-icon" />
-                <img src="assets/image/battery-icon.png" alt="Battery" class="battery-icon" />
-            </div>
             <div class="status-right">
-                <button class="icon-button">
-                    <img src="assets/image/scan-icon.png" alt="Scan" />
-                </button>
-                <button class="icon-button">
-                    <img src="assets/image/notification-icon.png" alt="Notification" />
-                </button>
-                <div class="language-switch">
-                    <span class="language-text">English</span>
-                    <img src="assets/image/arrow-icon.png" alt="Arrow" class="arrow-icon" />
-                </div>
+                <app-language-selector></app-language-selector>
             </div>
+        </div>
+
+        <!-- 店铺图片背景 -->
+        <div class="store-image-background">
+            <!-- 这里可以添加店铺背景图片 -->
         </div>
 
         <!-- 店铺信息卡片 -->
         <div class="store-card">
-            <div class="store-header">
-                <div class="store-info">
-                    <h2 class="store-name">Yaki House</h2>
-                    <p class="store-address">123 Main St, New York, NY 10001</p>
+            <div class="store-info">
+                <div class="store-logo">
+                    <span class="logo-icon">🍽️</span>
                 </div>
-                <img src="assets/image/store-image.png" alt="Store" class="store-image" />
+                <div class="store-details">
+                    <h2 class="store-name">{{ storeInfo().name }}</h2>
+                    <p class="store-address">{{ storeInfo().address }}</p>
+                </div>
+                <div class="store-arrow">
+                    <span class="arrow-icon">➡️</span>
+                </div>
             </div>
-            <p class="store-tagline">Authentic Japanese Cuisine</p>
+            <p class="store-tagline">{{ storeInfo().tagline }}</p>
         </div>
 
         <!-- 人数选择区域 -->
         <div class="people-section">
-            <h3 class="section-title">How many people?</h3>
+            <h3 class="section-title">Please select the number of diners</h3>
             <div class="people-grid">
                 @for (num of peopleOptions; track num) {
                     <div
@@ -43,30 +39,32 @@
                         [class.selected]="selectedPeople === num"
                         (click)="selectPeople(num)"
                     >
-                        <span class="people-text">{{ num }}</span>
+                        <span class="people-text">{{ num }}人</span>
                     </div>
                 }
             </div>
             <div class="custom-people">
-                <input
+                <ion-input
                     type="number"
-                    class="custom-input"
-                    placeholder="Enter number"
+                    placeholder="Customize number of diners"
                     [(ngModel)]="customPeopleValue"
-                    (ngModelChange)="selectCustomPeople()"
+                    (ionChange)="selectCustomPeople()"
+                    fill="outline"
+                    inputmode="numeric"
                 />
-                <span class="unit-text">People</span>
             </div>
         </div>
 
         <!-- 开始点餐按钮 -->
-        <button class="start-order-button" [disabled]="!selectedPeople" (click)="startOrder()">
-            Start Order
-        </button>
-
-        <!-- 底部信息 -->
-        <div class="footer-info">
-            <p class="footer-text">© 2024 Yaki House. All rights reserved.</p>
-        </div>
+        <ion-button
+            class="start-order-button"
+            [disabled]="!selectedPeople"
+            (click)="startOrder()"
+            expand="full"
+            fill="solid"
+            color="primary"
+        >
+            {{ 'page.startBtn' | translate }}
+        </ion-button>
     </div>
 </ion-content>

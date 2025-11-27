@@ -1,10 +1,10 @@
-@use '../../../assets/styles/px-to-rem.scss' as *;
+@use 'px-to-rem' as *;
 
 // 页面整体样式
 .page {
-  @include px-to-rem('width', 375px);
-  @include px-to-rem('min-height', 812px);
-  background-color: #f5f5f5;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
   position: relative;
   overflow: hidden;
 }
@@ -12,127 +12,111 @@
 // 顶部状态栏
 .status-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   @include px-to-rem('padding', 0 20px);
   @include px-to-rem('height', 44px);
-  background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
-
-  .status-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    .time {
-      @include px-to-rem('font-size', 15px);
-      font-weight: 500;
-      color: #333;
-    }
-
-    .wifi-icon {
-      @include px-to-rem('width', 16px);
-      @include px-to-rem('height', 12px);
-    }
-
-    .battery-icon {
-      @include px-to-rem('width', 24px);
-      @include px-to-rem('height', 12px);
-    }
-  }
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: #ffffff;
 
   .status-right {
     display: flex;
     align-items: center;
     gap: 16px;
-
-    .icon-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      @include px-to-rem('width', 24px);
-      @include px-to-rem('height', 24px);
-    }
-
-    .language-switch {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-
-      .language-text {
-        @include px-to-rem('font-size', 14px);
-        color: #333;
-      }
-
-      .arrow-icon {
-        @include px-to-rem('width', 16px);
-        @include px-to-rem('height', 16px);
-      }
-    }
   }
+}
+
+// 店铺图片背景
+.store-image-background {
+  @include px-to-rem('height', 200px);
+  background-color: #333;
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=375&h=200&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
 // 店铺信息卡片
 .store-card {
-  @include px-to-rem('margin', 20px);
-  @include px-to-rem('padding', 24px);
-  background-color: #fff;
+  @include px-to-rem('margin', 0 20px -50px);
+  @include px-to-rem('padding', 20px);
+  background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 5;
 
-  .store-header {
+  .store-info {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
 
-    .store-info {
+    .store-logo {
+      @include px-to-rem('width', 40px);
+      @include px-to-rem('height', 40px);
+      background-color: #ff6b35;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .logo-icon {
+        font-size: 20px;
+      }
+    }
+
+    .store-details {
       flex: 1;
 
       .store-name {
-        @include px-to-rem('font-size', 24px);
+        @include px-to-rem('font-size', 20px);
         font-weight: bold;
         color: #333;
-        margin: 0 0 8px;
+        margin: 0 0 4px;
       }
 
       .store-address {
-        @include px-to-rem('font-size', 14px);
+        @include px-to-rem('font-size', 12px);
         color: #666;
         margin: 0;
       }
     }
 
-    .store-image {
-      @include px-to-rem('width', 80px);
-      @include px-to-rem('height', 80px);
-      border-radius: 8px;
-      object-fit: cover;
+    .store-arrow {
+      color: #999;
     }
   }
 
   .store-tagline {
-    @include px-to-rem('font-size', 16px);
-    color: #333;
+    @include px-to-rem('font-size', 14px);
+    color: #ff6b35;
     text-align: center;
-    margin: 16px 0 0;
+    margin: 0;
     font-weight: 500;
   }
 }
 
 // 人数选择区域
 .people-section {
-  @include px-to-rem('margin', 0 20px 20px);
-  @include px-to-rem('padding', 24px);
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  @include px-to-rem('margin', 60px 20px 20px);
+  @include px-to-rem('padding', 0);
 
   .section-title {
     @include px-to-rem('font-size', 18px);
     font-weight: bold;
     color: #333;
     margin: 0 0 20px;
+    text-align: center;
+    background-color: #ff6b35;
+    color: #ffffff;
+    @include px-to-rem('padding', 12px);
+    border-radius: 8px;
   }
 
   .people-grid {
@@ -142,9 +126,9 @@
     margin-bottom: 20px;
 
     .people-option {
-      @include px-to-rem('height', 60px);
+      @include px-to-rem('height', 50px);
       border: 2px solid #e0e0e0;
-      border-radius: 12px;
+      border-radius: 8px;
       background-color: #fff;
       display: flex;
       align-items: center;
@@ -154,7 +138,6 @@
 
       &:hover {
         border-color: #ff6b35;
-        transform: translateY(-2px);
       }
 
       &.selected {
@@ -164,26 +147,25 @@
       }
 
       .people-text {
-        @include px-to-rem('font-size', 16px);
+        @include px-to-rem('font-size', 14px);
         font-weight: 500;
       }
     }
   }
 
   .custom-people {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    margin-bottom: 30px;
 
     .custom-input {
-      flex: 1;
-      @include px-to-rem('height', 60px);
+      width: 100%;
+      @include px-to-rem('height', 50px);
       border: 2px solid #e0e0e0;
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 0 16px;
-      @include px-to-rem('font-size', 16px);
+      @include px-to-rem('font-size', 14px);
       outline: none;
       transition: border-color 0.3s ease;
+      text-align: center;
 
       &:focus {
         border-color: #ff6b35;
@@ -191,60 +173,43 @@
 
       &::placeholder {
         color: #999;
+        text-align: center;
       }
-    }
-
-    .unit-text {
-      @include px-to-rem('font-size', 16px);
-      color: #333;
-      font-weight: 500;
     }
   }
 }
 
 // 开始点餐按钮
 .start-order-button {
-  @include px-to-rem('margin', 0 20px);
+  @include px-to-rem('margin', 0 20px 30px);
   @include px-to-rem('height', 56px);
-  background-color: #ff6b35;
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  @include px-to-rem('font-size', 18px);
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover:not(:disabled) {
-    background-color: #e55a2b;
-    transform: translateY(-2px);
-  }
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    transform: none;
-  }
+  --background: #ff6b35;
+  --background-hover: #e55a2b;
+  --background-activated: #e55a2b;
+  --background-focused: #ff6b35;
+  --background-disabled: #ccc;
+  --color: #fff;
+  --color-disabled: #666;
+  --border-radius: 8px;
+  --font-size: 0.48rem; /* 18px / 37.5px = 0.48rem */
+  --font-weight: bold;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  width: calc(100% - 40px);
 }
 
-// 底部信息
-.footer-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  @include px-to-rem('padding', 16px 20px);
-  background-color: #fff;
-  border-top: 1px solid #e0e0e0;
+// 自定义人数输入框
+.custom-people {
+  margin-bottom: 30px;
 
-  .footer-text {
-    @include px-to-rem('font-size', 12px);
-    color: #999;
-    text-align: center;
-    margin: 0;
+  ion-input {
+    @include px-to-rem('height', 50px);
+    --border-radius: 8px;
+    --border-color: #e0e0e0;
+    --placeholder-color: #999;
+    --text-align: center;
+    --font-size: px-to-rem(15px); /* 15px / 37.5px = 0.4rem */
+    --placeholder-font-size: px-to-rem(15px); /* 15px / 37.5px = 0.4rem */
   }
 }
 
@@ -255,22 +220,26 @@
   }
 
   .people-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 320px) {
   .people-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .store-card {
-    margin: 16px;
-    padding: 20px;
+    margin: 0 16px -50px;
+    padding: 16px;
   }
 
   .people-section {
-    margin: 0 16px 16px;
-    padding: 20px;
+    margin: 60px 16px 20px;
+  }
+
+  .start-order-button {
+    margin: 0 16px 30px;
+    width: calc(100% - 32px);
   }
 }

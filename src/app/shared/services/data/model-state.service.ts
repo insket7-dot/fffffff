@@ -13,6 +13,7 @@ export class ModelStateService {
     private readonly _curModel = signal<string>(MenuType.NORMAL);
     private readonly _curWay = signal<string>('');
     private readonly _deviceId = signal<string>('');
+    private readonly _storeCode = signal<string>('');
     private initialized = false;
     // 静默加载标识
     private readonly _silentLoad = signal<boolean>(false);
@@ -20,6 +21,7 @@ export class ModelStateService {
     readonly curModelValue = computed(() => this._curModel());
     readonly curWayValue = computed(() => this._curWay());
     readonly deviceIdValue = computed(() => this._deviceId());
+    readonly storeCodeValue = computed(() => this._storeCode());
 
     // 静默加载状态
     readonly silentLoadValue = computed(() => this._silentLoad());
@@ -85,18 +87,6 @@ export class ModelStateService {
         }
     }
 
-    // 暴露只读信号供组件使用
-    get curModel() {
-        return this._curModel.asReadonly();
-    }
-
-    get curWay() {
-        return this._curWay.asReadonly();
-    }
-
-    get deviceId() {
-        return this._deviceId.asReadonly();
-    }
 
     setCurModel(model: string) {
         this._curModel.set(model);
@@ -110,6 +100,10 @@ export class ModelStateService {
         LocalStorage.setItem(CacheKey.DEVICE_ID, deviceId).catch((err) => {
             console.error('保存设备ID失败:', err);
         });
+    }
+
+    setStoreCode(storeCode: string) {
+        this._storeCode.set(storeCode);
     }
 
     /**

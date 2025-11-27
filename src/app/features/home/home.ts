@@ -1,27 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, computed } from '@angular/core';
 import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { HomeService } from './service/home.service';
-import { IonContent } from '@ionic/angular/standalone';
+import { IonContent, IonInput, IonButton } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
+import { LanguageSelectorComponent } from '@app/shared/components/language-selector/language-selector';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-home',
-    imports: [IonContent, FormsModule],
+    imports: [IonContent, FormsModule, LanguageSelectorComponent, IonInput, IonButton, TranslateModule],
     templateUrl: './home.html',
     styleUrl: './home.scss',
 })
 export class Home extends AbstractAppPage implements OnInit {
     // 人数选择相关
     selectedPeople: number | null = null;
-    peopleOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    peopleOptions = [1, 2, 3, 4, 5, 6, 7, 8];
     customPeopleValue: string = '';
 
-    constructor(private homeService: HomeService) {
+    // 店铺信息
+    storeInfo = computed(() => this.homeService.storeInfo());
+
+    constructor(public homeService: HomeService) {
         super();
     }
 
     ngOnInit() {
         this.homeService.init();
+    }
+
+    // 获取当前时间
+    getCurrentTime(): string {
+        return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
     }
 
     // 选择人数
@@ -46,18 +56,5 @@ export class Home extends AbstractAppPage implements OnInit {
             console.log(`开始为 ${this.selectedPeople} 人点餐`);
             // 这里可以导航到菜单页面或其他逻辑
         }
-    }
-
-    // 获取当前时间
-    getCurrentTime(): string {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        return `${hours}:${minutes}`;
-    }
-
-    // 获取电池电量（模拟）
-    getBatteryLevel(): string {
-        return '1'; // 模拟电池图标
     }
 }

@@ -7,7 +7,12 @@ import { Routes } from '@angular/router';
 export const animationPages = ['home'];
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '', pathMatch: 'full', redirectTo: '/init' },
+  {
+    path: 'init',
+    loadComponent: () => import('./features/init/init').then((m) => m.Init),
+    pathMatch: 'full',
+  },
   {
     path: 'home',
     loadComponent: () => import('./features/home/home').then((m) => m.Home),
@@ -15,3 +20,4 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
 ];
+

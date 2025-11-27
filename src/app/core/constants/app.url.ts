@@ -5,7 +5,7 @@ import { environment } from '@/environments/environment';
  * 前端页面地址枚举类
  */
 export class AppUrl {
-    public static readonly API_PREFIX: string = 'o2o/yaki-out';
+    public static readonly API_PREFIX: string = 'o2o/mobile-out';
 
     /** 页面导航：登录页地址页 */
     public static readonly PAGE_HOME: Url = new Url('PAGE_HOME', 'home', Method.NAVIGATOR);
