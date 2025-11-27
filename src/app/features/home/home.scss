@@ -181,8 +181,6 @@
 
 // 开始点餐按钮
 .start-order-button {
-  @include px-to-rem('margin', 0 20px 30px);
-  @include px-to-rem('height', 56px);
   --background: #ff6b35;
   --background-hover: #e55a2b;
   --background-activated: #e55a2b;
@@ -191,11 +189,21 @@
   --color: #fff;
   --color-disabled: #666;
   --border-radius: 8px;
-  --font-size: 0.48rem; /* 18px / 37.5px = 0.48rem */
   --font-weight: bold;
   --padding-top: 0;
   --padding-bottom: 0;
+}
+
+// 使用part样式化按钮内部元素
+.start-order-button::part(native) {
+   @include px-to-rem('margin', 0 20px 30px);
+  @include px-to-rem('height', 56px);
+  @include px-to-rem('font-size', 18px);
   width: calc(100% - 40px);
+  font-weight: bold;
+  color: #fff;
+  border-radius: 8px;
+  background: #ff6b35;
 }
 
 // 自定义人数输入框
@@ -208,8 +216,19 @@
     --border-color: #e0e0e0;
     --placeholder-color: #999;
     --text-align: center;
-    --font-size: px-to-rem(15px); /* 15px / 37.5px = 0.4rem */
-    --placeholder-font-size: px-to-rem(15px); /* 15px / 37.5px = 0.4rem */
+    --font-size: 15px;
+    --placeholder-font-size: 15px;
+  }
+
+  // 使用part样式化输入框内部元素
+  ion-input::part(input) {
+    font-size: 15px !important;
+    text-align: center !important;
+  }
+
+  // 使用part样式化输入框占位符
+  ion-input::part(placeholder) {
+    font-size: 15px !important;
   }
 }
 

@@ -4,7 +4,7 @@ import { HomeService } from './service/home.service';
 import { IonContent, IonInput, IonButton } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { LanguageSelectorComponent } from '@app/shared/components/language-selector/language-selector';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-home',
