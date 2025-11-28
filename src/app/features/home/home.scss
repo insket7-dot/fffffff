@@ -185,80 +185,83 @@
   --background-hover: #e55a2b;
   --background-activated: #e55a2b;
   --background-focused: #ff6b35;
-  --background-disabled: #ccc;
   --color: #fff;
-  --color-disabled: #666;
   --border-radius: 8px;
-  --font-weight: bold;
   --padding-top: 0;
   --padding-bottom: 0;
-}
-
-// 使用part样式化按钮内部元素
-.start-order-button::part(native) {
-   @include px-to-rem('margin', 0 20px 30px);
+  @include px-to-rem('margin', 0 20px 30px);
   @include px-to-rem('height', 56px);
   @include px-to-rem('font-size', 18px);
   width: calc(100% - 40px);
   font-weight: bold;
-  color: #fff;
-  border-radius: 8px;
-  background: #ff6b35;
 }
+
+// 使用part样式化按钮内部元素（仅用于不支持的CSS变量）
+// .start-order-button::part(native) {
+//   @include px-to-rem('margin', 0 20px 30px);
+//   @include px-to-rem('height', 56px);
+//   @include px-to-rem('font-size', 18px);
+//   width: calc(100% - 40px);
+//   font-weight: bold;
+// }
+
+// 按钮禁用状态样式
+// .start-order-button:disabled::part(native) {
+//   background-color: #ccc;
+//   color: #666;
+// }
 
 // 自定义人数输入框
 .custom-people {
   margin-bottom: 30px;
 
-  ion-input {
+  ion-input.custom-people-input {
     @include px-to-rem('height', 50px);
     --border-radius: 8px;
     --border-color: #e0e0e0;
     --placeholder-color: #999;
     --text-align: center;
-    --font-size: 15px;
-    --placeholder-font-size: 15px;
   }
 
   // 使用part样式化输入框内部元素
   ion-input::part(input) {
-    font-size: 15px !important;
-    text-align: center !important;
+    @include px-to-rem('font-size', 15px);
+    text-align: center;
   }
 
   // 使用part样式化输入框占位符
   ion-input::part(placeholder) {
-    font-size: 15px !important;
+    @include px-to-rem('font-size', 15px);
   }
 }
 
 // 响应式设计
-@media (max-width: 375px) {
-  .page {
-    width: 100%;
-  }
+// @media (max-width: 375px) {
+//   .page {
+//     width: 100%;
+//   }
 
-  .people-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+//   .people-grid {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+// }
 
-@media (max-width: 320px) {
-  .people-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+// @media (max-width: 320px) {
+//   .people-grid {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
 
-  .store-card {
-    margin: 0 16px -50px;
-    padding: 16px;
-  }
+//   .store-card {
+//     margin: 0 16px -50px;
+//     padding: 16px;
+//   }
 
-  .people-section {
-    margin: 60px 16px 20px;
-  }
+//   .people-section {
+//     margin: 60px 16px 20px;
+//   }
 
-  .start-order-button {
-    margin: 0 16px 30px;
-    width: calc(100% - 32px);
-  }
-}
+//   .start-order-button {
+//     margin: 0 16px 30px;
+//     width: calc(100% - 32px);
+//   }
+// }

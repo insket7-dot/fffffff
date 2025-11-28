@@ -45,6 +45,7 @@
             </div>
             <div class="custom-people">
                 <ion-input
+                    class="custom-people-input"
                     type="number"
                     placeholder="Customize number of diners"
                     [(ngModel)]="customPeopleValue"
@@ -62,7 +63,6 @@
             (click)="startOrder()"
             expand="full"
             fill="solid"
-            color="primary"
         >
             {{ 'page.startBtn' | translate }}
         </ion-button>

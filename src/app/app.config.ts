@@ -20,6 +20,7 @@ import { LanguageService } from '@app/core/services/language.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { APP_URLS } from '@app/core/tokens/app.url.token';
 import { AppUrl } from '@app/core/constants/app.url';
+import { provideIonicAngular } from '@ionic/angular/standalone';
 
 // 注册本地化数据
 registerLocaleData(localeZh, 'zh-cn');
@@ -80,5 +81,6 @@ export const appConfig: ApplicationConfig = {
       provide: APP_URLS,
       useValue: AppUrl,
     },
+    provideIonicAngular({}),
   ],
 };
