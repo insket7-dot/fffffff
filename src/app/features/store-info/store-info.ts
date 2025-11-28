@@ -7,6 +7,9 @@ import { DateUtils } from '../../shared/services/util/date-utils.service';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { chevronBackOutline } from 'ionicons/icons';
+import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
+import { AppUrlService } from '@app/shared/services/util/app.url.service';
+
 
 @Component({
     selector: 'app-store-info',
@@ -15,7 +18,7 @@ import { chevronBackOutline } from 'ionicons/icons';
     standalone: true,
     imports: [GoogleMap, MapMarker, TranslateModule, IonicModule],
 })
-export class StoreInfo implements OnInit {
+export class StoreInfo extends AbstractAppPage implements OnInit {
     protected appStoreService = inject(AppStoreService);
     protected dateUtils = inject(DateUtils);
     private translateService = inject(TranslateService);
@@ -79,7 +82,8 @@ export class StoreInfo implements OnInit {
 
     // 当前营业状态
     isOpen = false;
-    constructor() {
+    constructor(private AppUrlService: AppUrlService) {
+        super()
         addIcons({ chevronBackOutline });
     }
 
@@ -121,5 +125,10 @@ export class StoreInfo implements OnInit {
     setMapMarker() {
         // 从AppStoreService获取门店坐标（当前接口暂未提供坐标数据）
         // 预留方法，后续可根据实际接口返回数据进行调整
+    }
+
+
+    backToHome() {
+        this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_HOME')]);
     }
 }
