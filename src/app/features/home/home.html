@@ -1,32 +1,47 @@
 <ion-content>
-  <!-- 大布局容器 -->
-  <ion-grid>
-    <ion-row>
-      <!-- 左侧分类列表 -->
-      <ion-col size="12" size-md="3">
-        <div class="category-list product-card">
-          <p>分类 1</p>
-          <p>分类 2</p>
-          <p>分类 3</p>
-        </div>
-      </ion-col>
+    <app-carousel [images]="images" [interval]="5000"></app-carousel>
 
-      <!-- 右侧商品列表 -->
-      <ion-col size="12" size-md="9">
-        <div class="product-card">
-          <img src="https://via.placeholder.com/150" alt="商品图" style="width:100px; height:100px;" />
-          <h3>商品名</h3>
-          <p>￥99.00</p>
-          <button class="button no-rem">加入购物车</button>
-        </div>
+    <div class="store-card">
+        <ion-avatar class="avatar">
+            <img
+                alt="logo"
+                src="https://pic.rmb.bdstatic.com/bjh/news/3fe6db1a8d291be39192f9a06c74ce99.png"
+            />
+        </ion-avatar>
 
-        <div class="product-card">
-          <img src="https://via.placeholder.com/150" alt="商品图" style="width:100px; height:100px;" />
-          <h3>商品名</h3>
-          <p>￥199.00</p>
-          <button class="button no-rem">加入购物车</button>
+        <div class="store-wrap">
+            <div class="store_name">YAKI</div>
+            <div class="store_desc">
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+            </div>
+            <div class="more"> > </div>
         </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    </div>
+
+    <div class="slogan">Authentic Chinese Flavors, Crafted with Heart</div>
+
+    <div class="diners">{{"app.home.selectNumber" | translate}}</div>
+
+    <div class="din-button">
+        @for (num of diningList; track $index) {
+            <span [class.active]="getDiningPeople() === num" (click)="selectPeople(num)">
+                {{ num }}
+            </span>
+        }
+    </div>
+    <ion-input
+        class="custom-input"
+        label=""
+        type="number"
+        [formControl]="dinerCount"
+        (ionBlur)="customBlur()"
+        placeholder="Customize number of diners"
+    ></ion-input>
+    @if (dinerCount.invalid && dinerCount.touched) {
+        <ion-note color="danger" class="note"> {{"app.home.numberValidate" | translate}} </ion-note>
+    }
+
+
+    <div class="start-button" (click)="startOrder()">{{"page.startBtn" | translate}}</div>
+
 </ion-content>

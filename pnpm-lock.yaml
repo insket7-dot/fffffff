@@ -54,6 +54,9 @@ importers:
       '@angular/compiler-cli':
         specifier: ^20.3.0
         version: 20.3.7(@angular/compiler@20.3.7)(typescript@5.9.3)
+      '@ionic/angular-toolkit':
+        specifier: latest
+        version: 12.3.0(chokidar@4.0.3)
       '@ngx-translate/core':
         specifier: ^17.0.0
         version: 17.0.0(@angular/common@20.3.7(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.3.7(@angular/compiler@20.3.7)(rxjs@7.8.2)(zone.js@0.15.1))
@@ -683,6 +686,9 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
+
+  '@ionic/angular-toolkit@12.3.0':
+    resolution: {integrity: sha512-9cPTMmwggviB2W7wf4sv4vFeQnYq5HbO6V89UqQHopShokdhSvUFpaQ2w1/Mdf/ot8PghGjR3t5IdnXV7i1LvA==}
 
   '@ionic/angular@8.7.7':
     resolution: {integrity: sha512-59BiojJKNbUI9K4lkK1olgEhuFqErjFjIrDXJJmic1LlGfYzkZJzObf0KtTxqwbWPlBzz9ybi4+N0EATFNBmZw==}
@@ -3618,6 +3624,14 @@ snapshots:
   '@inquirer/type@3.0.9(@types/node@24.9.1)':
     optionalDependencies:
       '@types/node': 24.9.1
+
+  '@ionic/angular-toolkit@12.3.0(chokidar@4.0.3)':
+    dependencies:
+      '@angular-devkit/core': 20.3.7(chokidar@4.0.3)
+      '@angular-devkit/schematics': 20.3.7(chokidar@4.0.3)
+      '@schematics/angular': 20.3.7(chokidar@4.0.3)
+    transitivePeerDependencies:
+      - chokidar
 
   '@ionic/angular@8.7.7(49b49a1d9196597c20f36da8648d5c2d)':
     dependencies:

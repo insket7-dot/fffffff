@@ -1,0 +1,23 @@
+@use "@/assets/styles/px-to-rem.scss" as *;
+
+.carousel {
+    position: relative;
+    @include px-to-rem(width, 100%);
+    @include px-to-rem(height, 250px);
+    overflow: hidden;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include px-to-rem(width, 100%);
+    @include px-to-rem(height, 100%);
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}

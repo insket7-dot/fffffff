@@ -46,7 +46,10 @@
                 "syncSuccess": "Menu sync successful, {{count}} items stored in SQLite.",
                 "syncing": "Syncing menu data to local database..."
             },
-            "title": "Home"
+            "title": "Home",
+            "selectNumber": "Please select the number of diners",
+            "numberValidate": "The number of people cannot exceed 99 people"
+
         },
         "language": {
             "en-us": "English",

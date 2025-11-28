@@ -59,11 +59,11 @@
 /* 字体专用响应式 mixin */
 @mixin responsive-font-size($px-values, $important: false) {
     @include px-to-rem(font-size, $px-values, $important);
-    
+
     @media (max-width: 768px) {
         @include px-to-rem(font-size, $px-values, $important);
     }
-    
+
     @media (max-width: 480px) {
         @include px-to-rem(font-size, $px-values, $important);
     }
@@ -72,7 +72,7 @@
 /* 高级响应式 mixin - 基于视口宽度 */
 @mixin viewport-responsive($property, $mobile-px, $desktop-px: $mobile-px, $important: false) {
     @include px-to-rem($property, $desktop-px, $important);
-    
+
     @media (max-width: 768px) {
         @include px-to-rem($property, $mobile-px, $important);
     }
@@ -81,16 +81,16 @@
 /* 流式布局 mixin - 真正的响应式 */
 @mixin fluid-size($property, $min-px, $max-px, $min-vw: 320px, $max-vw: 1200px) {
     #{$property}: px-to-rem($min-px);
-    
+
     @media (min-width: $min-vw) and (max-width: $max-vw) {
         #{$property}: calc(
-            #{px-to-rem($min-px)} + 
-            #{($max-px - $min-px)} * 
-            (100vw - #{$min-vw}) / 
+            #{px-to-rem($min-px)} +
+            #{($max-px - $min-px)} *
+            (100vw - #{$min-vw}) /
             #{$max-vw - $min-vw}
         );
     }
-    
+
     @media (min-width: $max-vw) {
         #{$property}: px-to-rem($max-px);
     }
