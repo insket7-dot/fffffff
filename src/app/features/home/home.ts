@@ -65,4 +65,10 @@ export class Home extends AbstractAppPage implements OnInit {
         if (this.getDiningPeople() > 0) {
         }
     }
+
+
+     // 获取当前时间
+    getCurrentTime(): string {
+        return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    }
 }
