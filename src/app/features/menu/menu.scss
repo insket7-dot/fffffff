@@ -6,84 +6,6 @@
   overflow: hidden;
 }
 
-/* Header Styles */
-.menu-header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px 20px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-/* First Row: Order Type and Language Selector */
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.order-type {
-  display: flex;
-  gap: 8px;
-}
-
-.order-type-btn {
-  padding: 8px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 20px;
-  background-color: white;
-  color: #666;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.order-type-btn.active {
-  background-color: #ff6b6b;
-  color: white;
-  border-color: #ff6b6b;
-}
-
-.store-info {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #333;
-  font-weight: 600;
-  width: 100%;
-}
-
-.store-info ion-icon {
-  font-size: 16px;
-  color: #666;
-}
-
-.language-selector {
-  position: relative;
-}
-
-.language-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 12px;
-  border: 1px solid #e0e0e0;
-  border-radius: 20px;
-  background-color: white;
-  color: #333;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.language-btn ion-icon {
-  font-size: 14px;
-  color: #666;
-}
-
 /* Main Content Styles */
 .menu-main {
   display: grid;
@@ -98,7 +20,7 @@
   border-right: 1px solid #e0e0e0;
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100vh - 160px); /* 减去header和footer高度 */
+  height: 100%; /* 自动适应剩余空间 */
 }
 
 .category-list {
@@ -151,37 +73,8 @@
   background-color: #f5f5f5;
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100vh - 160px); /* 减去header和footer高度 */
+  height: 100%; /* 自动适应剩余空间 */
   padding: 16px;
-}
-
-/* Promotion Banner */
-.promotion-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background-color: #fff3cd;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  color: #856404;
-}
-
-.promotion-banner p {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.promotion-btn {
-  padding: 6px 12px;
-  background-color: #856404;
-  color: white;
-  border: none;
-  border-radius: 16px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 /* Menu Items */
@@ -285,83 +178,6 @@
   z-index: 10;
 }
 
-.cart-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.cart-icon {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: #f0f0f0;
-  border-radius: 50%;
-}
-
-.cart-icon ion-icon {
-  font-size: 24px;
-  color: #333;
-}
-
-.cart-count {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  background-color: #ff6b6b;
-  color: white;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 2px 6px;
-  border-radius: 10px;
-  min-width: 20px;
-  text-align: center;
-}
-
-.cart-total {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.total-label {
-  font-size: 12px;
-  color: #666;
-}
-
-.total-amount {
-  font-size: 20px;
-  font-weight: 700;
-  color: #333;
-}
-
-.confirm-btn {
-  padding: 12px 24px;
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 24px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.confirm-btn:hover {
-  background-color: #ff5252;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
-}
-
 /* Scrollbar Styles */
 .category-nav::-webkit-scrollbar,
 .menu-content::-webkit-scrollbar {
@@ -431,34 +247,7 @@
 }
 
 @media (max-width: 480px) {
-  .menu-header {
-    padding: 12px 16px;
-  }
-
-  .order-type-btn {
-    padding: 6px 12px;
-    font-size: 13px;
-  }
-
-  .store-name {
-    font-size: 14px;
-  }
-
-  .language-btn {
-    padding: 6px 10px;
-    font-size: 13px;
-  }
-
   .menu-footer {
     padding: 12px 16px;
-  }
-
-  .cart-total .total-amount {
-    font-size: 18px;
-  }
-
-  .confirm-btn {
-    padding: 10px 20px;
-    font-size: 14px;
   }
 }
