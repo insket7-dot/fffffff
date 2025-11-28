@@ -2,7 +2,8 @@ import { Component, signal, inject, OnInit, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { EventManager } from '@rydeen/angular-framework';
 import { AppEvent } from '@app/core/constants/app.event';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular/standalone';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class App implements OnInit {
   protected readonly title = signal('yaki-web-app');
   private readonly eventManager = inject(EventManager);
   private readonly loadingController = inject(LoadingController);
+  private readonly translate = inject(TranslateService);
   
   // 使用signal控制loading状态
   protected readonly isLoading = signal(false);
@@ -49,7 +51,7 @@ export class App implements OnInit {
     
     // 创建并显示loading
     this.loadingElement = await this.loadingController.create({
-      message: '加载中...',
+      message: this.translate.instant('app.common.loading'),
       spinner: 'circles',
       translucent: true,
       backdropDismiss: false
