@@ -203,6 +203,23 @@
         "clearAll": "請確認是否清除購物車所有菜品?"
     },
     "menu": {
+        "promotion": "了解店鋪最新更新和",
+        "more": "更多",
+        "total": "合計",
+        "confirm": "確認",
+        "dineIn": "堂食",
+        "takeaway": "外帶",
+        "english": "English",
+        "storeName": "StoreName",
+        "storeActivities": "店鋪活動",
+        "memberDay": "會員日",
+        "memberDayDesc": "每週三所有產品享受9折優惠",
+        "newProduct": "新品上市",
+        "newProductDesc": "嘗試我們的新招牌菜",
+        "discount": "特別優惠",
+        "discountDesc": "限時享受獨家折扣",
+        "holidaySpecial": "節日特惠",
+        "holidaySpecialDesc": "節假日和特殊場合特別優惠",
         "detail": {
             "grill": {
                 "title": "加料",

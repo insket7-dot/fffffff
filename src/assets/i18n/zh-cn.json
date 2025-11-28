@@ -205,6 +205,23 @@
         "clearAll": "请确认是否清除购物车所有菜品?"
     },
     "menu": {
+        "promotion": "了解店铺最新更新和",
+        "more": "更多",
+        "total": "合计",
+        "confirm": "确认",
+        "dineIn": "堂食",
+        "takeaway": "外带",
+        "english": "English",
+        "storeName": "StoreName",
+        "storeActivities": "店铺活动",
+        "memberDay": "会员日",
+        "memberDayDesc": "每周三所有产品享受9折优惠",
+        "newProduct": "新品上市",
+        "newProductDesc": "尝试我们的新招牌菜",
+        "discount": "特别优惠",
+        "discountDesc": "限时享受独家折扣",
+        "holidaySpecial": "节日特惠",
+        "holidaySpecialDesc": "节假日和特殊场合特别优惠",
         "detail": {
             "grill": {
                 "title": "加料",

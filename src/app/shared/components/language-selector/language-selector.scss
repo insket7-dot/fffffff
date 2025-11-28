@@ -1,0 +1,101 @@
+@use 'px-to-rem' as *;
+
+.custom-language-selector {
+    position: relative;
+    font-family: Arial, sans-serif;
+    background-color: rgba(161, 160, 160, 0.1);
+    border-radius: px-to-rem(24px);
+    min-width: px-to-rem(120px);
+}
+
+/* 下拉按钮：包含地球图标和当前语言 */
+.dropdown-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: px-to-rem(6px) px-to-rem(8px);
+    background-color: transparent;
+    border: none;
+    border-radius: px-to-rem(4px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 展开状态的按钮样式 */
+.dropdown-button.expanded {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.globe-icon {
+    margin-right: px-to-rem(4px);
+    font-size: px-to-rem(14px);
+}
+
+.current-language {
+    flex: 1;
+    text-align: left;
+    font-size: px-to-rem(13px);
+    color: #ffffff;
+    font-weight: 500;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.arrow-icon {
+    margin-left: px-to-rem(4px);
+    font-size: px-to-rem(12px);
+    transition: transform 0.2s ease;
+    padding-right: px-to-rem(2px);
+
+    img {
+        width: px-to-rem(12px);
+        height: px-to-rem(6px);
+        filter: brightness(0) invert(1); /* 将箭头图标改为白色 */
+    }
+}
+
+/* 下拉选项列表 - 带圆角 */
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: px-to-rem(1px) solid #e0e0e0;
+    border-top: none;
+    border-bottom-left-radius: px-to-rem(8px);
+    border-bottom-right-radius: px-to-rem(8px);
+    box-shadow: 0 px-to-rem(4px) px-to-rem(6px) rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    max-height: px-to-rem(200px);
+    overflow-y: auto;
+}
+
+/* 选项样式 */
+.dropdown-option {
+    padding: px-to-rem(10px) px-to-rem(12px);
+    cursor: pointer;
+    text-align: left;
+    font-size: px-to-rem(14px);
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-option:hover,
+.dropdown-option.active {
+    background-color: #fff3ed;
+    color: #ff6b35;
+}
+
+/* 滚动条样式优化 */
+.dropdown-options::-webkit-scrollbar {
+    width: px-to-rem(6px);
+}
+
+.dropdown-options::-webkit-scrollbar-thumb {
+    background-color: #ff6b35;
+    border-radius: px-to-rem(3px);
+}

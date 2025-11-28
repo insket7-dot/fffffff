@@ -16,7 +16,7 @@ import { Subject, takeUntil } from 'rxjs';
     standalone: true,
     imports: [CommonModule],
     template: `
-        <div class="custom-language-selector" [style.width]="width || '120px'">
+        <div class="custom-language-selector" [style.width]="width">
             <!-- 下拉按钮：包含地球图标和当前语言 -->
             <div
                 class="dropdown-button"
@@ -50,106 +50,7 @@ import { Subject, takeUntil } from 'rxjs';
              }
         </div>
     `,
-    styles: [
-        `
-            .custom-language-selector {
-                position: relative;
-                font-family: Arial, sans-serif;
-            }
-
-            /* 下拉按钮：包含地球图标和当前语言 */
-            .dropdown-button {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 6px 8px;
-                background-color: transparent;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: all 0.2s ease;
-            }
-
-            /* 展开状态的按钮样式 */
-            .dropdown-button.expanded {
-                background-color: rgba(255, 255, 255, 0.9);
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-
-            .globe-icon {
-                margin-right: 4px;
-                font-size: 14px;
-            }
-
-            .current-language {
-                flex: 1;
-                text-align: left;
-                font-size: 14px;
-                color: #ffffff;
-                font-weight: 500;
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-
-            .arrow-icon {
-                margin-left: 4px;
-                font-size: 12px;
-                transition: transform 0.2s ease;
-                padding-right: 2px;
-
-                img {
-                    width: 12px;
-                    height: 6px;
-                    filter: brightness(0) invert(1); /* 将箭头图标改为白色 */
-                }
-            }
-
-            /* 下拉选项列表 - 带圆角 */
-            .dropdown-options {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: #ffffff;
-                border: 1px solid #e0e0e0;
-                border-top: none;
-                border-bottom-left-radius: 8px;
-                border-bottom-right-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 100;
-                max-height: 200px;
-                overflow-y: auto;
-            }
-
-            /* 选项样式 */
-            .dropdown-option {
-                padding: 10px 12px;
-                cursor: pointer;
-                text-align: left;
-                font-size: 14px;
-                transition: background-color 0.2s ease;
-            }
-
-            .dropdown-option:hover,
-            .dropdown-option.active {
-                background-color: #fff3ed;
-                color: #ff6b35;
-            }
-
-            /* 滚动条样式优化 */
-            .dropdown-options::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            .dropdown-options::-webkit-scrollbar-thumb {
-                background-color: #ff6b35;
-                border-radius: 3px;
-            }
-        `,
-    ],
+    styleUrls: ['./language-selector.scss'],
 })
 export class LanguageSelectorComponent implements OnInit, OnDestroy {
     availableLanguages: LanguageOption[] = [];

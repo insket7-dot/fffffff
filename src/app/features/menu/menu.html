@@ -1,0 +1,52 @@
+<ion-content class="menu-container">
+  <!-- Header -->
+  <app-menu-header></app-menu-header> 
+
+  <!-- Main Content -->
+  <main class="menu-main">
+    <!-- Left Category Navigation -->
+    <aside class="category-nav" #categoryNav>
+      <div class="category-list">
+        @for (category of menuData(); track category.categoryId) {
+          <button 
+            class="category-item" 
+            [class.active]="currentCategory() === category.categoryId"
+            (click)="selectCategory(category.categoryId)"
+          >
+            <ion-icon name="restaurant-outline"></ion-icon>
+            <span>{{ category.categoryName }}</span>
+          </button>
+        }
+      </div>
+    </aside>
+
+    <!-- Right Menu Content -->
+    <section class="menu-content" #menuContent>
+      <!-- Menu Items -->
+      <div class="menu-items">
+        @for (item of currentMenu(); track item.productId) {
+          <div class="menu-item">
+            <div class="item-image">
+              <img [src]="item.imageUrl" [alt]="item.productNameCn" />
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">{{ item.productNameCn }}</h3>
+              <p class="item-description">{{ item.descriptionCn }}</p>
+              <div class="item-price">From {{ item.price }}</div>
+            </div>
+            <div class="item-actions">
+              <button class="add-to-cart-btn">
+                <ion-icon name="add-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Cart -->
+  <footer class="menu-footer">
+    <app-cart-summary></app-cart-summary>
+  </footer>
+</ion-content>

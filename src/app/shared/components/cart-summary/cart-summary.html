@@ -1,0 +1,15 @@
+@if (cartTotal().count > 0) {
+  <div class="cart-summary">
+    <div class="cart-info">
+      <div class="cart-icon">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span class="cart-count">{{ cartTotal().count }}</span>
+      </div>
+      <div class="cart-total">
+        <span class="total-label">{{ 'menu.total' | translate }}</span>
+        <span class="total-amount">${{ cartTotal().total }}</span>
+      </div>
+    </div>
+    <button class="confirm-btn" (click)="confirmOrder()">{{ 'menu.confirm' | translate }}</button>
+  </div>
+}
