@@ -24,5 +24,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/store-info/store-info').then((m) => m.StoreInfo),
     pathMatch: 'full',
   },
+  {
+    path: 'menu',
+    loadComponent: () => import('./features/menu/menu').then((m) => m.Menu),
+    pathMatch: 'full',
+  },
 ];
 

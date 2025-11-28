@@ -206,6 +206,23 @@
         "clearAll": "Are you sure you want to clear all items in the cart?"
     },
     "menu": {
+        "promotion": "Know about the store's latest updates and",
+        "more": "More",
+        "total": "Total",
+        "confirm": "Confirm",
+        "dineIn": "Dine-in",
+        "takeaway": "Takeaway",
+        "english": "English",
+        "storeName": "StoreName",
+        "storeActivities": "Store Activities",
+        "memberDay": "Member Day",
+        "memberDayDesc": "10% discount on all products every Wednesday",
+        "newProduct": "New Products",
+        "newProductDesc": "Try our new signature dishes",
+        "discount": "Special Offers",
+        "discountDesc": "Enjoy exclusive discounts for limited time",
+        "holidaySpecial": "Holiday Special",
+        "holidaySpecialDesc": "Special offers for holidays and special occasions",
         "detail": {
             "grill": {
                 "title": "Grill",

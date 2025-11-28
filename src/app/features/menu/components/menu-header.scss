@@ -1,0 +1,298 @@
+.menu-header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* First Row: Order Type and Language Selector */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.order-type {
+  display: flex;
+  gap: 8px;
+}
+
+.order-type-btn {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background-color: white;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.order-type-btn.active {
+  background-color: #ff6b6b;
+  color: white;
+  border-color: #ff6b6b;
+}
+
+.store-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #333;
+  font-weight: 600;
+  width: 100%;
+}
+
+.store-info ion-icon {
+  font-size: 16px;
+  color: #666;
+}
+
+.language-selector {
+  position: relative;
+}
+
+/* Store Activity Component */
+.store-activity-container {
+  position: relative;
+  margin-bottom: 0;
+  z-index: 10;
+}
+
+/* Activity Toggle Button */
+.activity-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #fff3cd;
+  border-radius: 12px;
+  color: #856404;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 12;
+  position: relative;
+}
+
+.activity-toggle:hover {
+  background-color: #ffeeba;
+}
+
+.activity-toggle p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.promotion-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background-color: #856404;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.promotion-btn:hover {
+  background-color: #6b5303;
+  transform: translateY(-1px);
+}
+
+.promotion-btn ion-icon {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+/* Activity Expanded Content */
+.activity-expanded {
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 0;
+  right: 0;
+  background-color: #fff3cd;
+  border-radius: 0 0 12px 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 11;
+  max-height: 200px;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease;
+}
+
+/* Activity Item */
+.activity-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(133, 100, 4, 0.1);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activity-icon ion-icon {
+  font-size: 20px;
+  color: #856404;
+}
+
+.activity-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #856404;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #a08b4b;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Activity Backdrop */
+.activity-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  animation: fadeIn 0.3s ease;
+  /* 覆盖整个页面 */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+  }
+}
+
+/* Scrollbar Styles */
+.activity-expanded::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activity-expanded::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+
+.activity-expanded::-webkit-scrollbar-thumb {
+  background: #856404;
+  border-radius: 3px;
+}
+
+.activity-expanded::-webkit-scrollbar-thumb:hover {
+  background: #6b5303;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-header-container {
+    padding: 12px 16px;
+  }
+
+  .order-type-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .store-name {
+    font-size: 14px;
+  }
+
+  .activity-toggle {
+    padding: 10px 14px;
+  }
+  
+  .activity-toggle p {
+    font-size: 13px;
+  }
+  
+  .promotion-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-header-container {
+    padding: 12px 16px;
+  }
+
+  .order-type-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .store-name {
+    font-size: 14px;
+  }
+
+  .activity-toggle {
+    padding: 8px 12px;
+  }
+  
+  .activity-toggle p {
+    font-size: 12px;
+  }
+  
+  .promotion-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
