@@ -238,5 +238,11 @@
         "orderNumber": "Order Number",
         "takeNo": "Take No",
         "orderAmount": "Order Amount"
+    },
+    "storeInfo": {
+        "open": "Open",
+        "closed": "Closed",
+        "businessHours": "Business Hours",
+        "contact": "Contact"
     }
 }

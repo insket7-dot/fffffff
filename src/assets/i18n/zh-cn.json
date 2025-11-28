@@ -237,5 +237,11 @@
         "orderNumber": "订单号",
         "takeNo": "取餐号",
         "orderAmount": "订单金额"
+    },
+    "storeInfo": {
+        "open": "营业中",
+        "closed": "已打烊",
+        "businessHours": "营业时间",
+        "contact": "联系方式"
     }
 }

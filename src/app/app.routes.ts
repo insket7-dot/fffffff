@@ -19,5 +19,10 @@ export const routes: Routes = [
     data: { animation: 'index' },
     pathMatch: 'full',
   },
+  {
+    path: 'store-detail',
+    loadComponent: () => import('./features/store-info/store-info').then((m) => m.StoreInfo),
+    pathMatch: 'full',
+  },
 ];
 

@@ -1,0 +1,43 @@
+<ion-content class="store-info-container">
+  <div class="store-info-card">
+    <!-- Google Maps -->
+    <div class="map-container">
+      <google-map [options]="mapOptions" height="200px">
+        <map-marker [options]="mapMarker"></map-marker>
+      </google-map>
+    </div>
+
+    <!-- Store Info -->
+    <div class="store-details">
+      <h2>{{ appStoreService.storeBaseInfoValue()?.storeName || 'Store Name' }}</h2>
+      <p class="store-address">{{ appStoreService.storeBaseInfoValue()?.address || 'Store Address' }}</p>
+      
+      <!-- Open Status -->
+      <div class="open-status" [class.open]="isOpen" [class.closed]="!isOpen">
+        <span>{{ getOpenStatusText() }}</span>
+      </div>
+    </div>
+
+    <!-- Business Hours -->
+    <div class="business-hours-section">
+      <h3>{{ 'storeInfo.businessHours' | translate }}</h3>
+      <div class="business-hours-grid">
+        @for (hour of businessHours; track hour.day) {
+          <div class="hour-item" [class.today]="dateUtils.getCurrentWeekDay().week === hour.day">
+            <div class="day-name">{{ hour.text }}</div>
+            <div class="time-range">{{ hour.open }} - {{ hour.close }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-section">
+      <h3>{{ 'storeInfo.contact' | translate }}</h3>
+      <div class="contact-item">
+        <ion-icon name="call-outline"></ion-icon>
+        <span>123-456-7890</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

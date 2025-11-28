@@ -1,3 +1,4 @@
+import { AppUrlService } from '@app/shared/services/util/app.url.service';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { HomeService } from './service/home.service';
@@ -43,7 +44,7 @@ export class Home extends AbstractAppPage implements OnInit {
 
     getDiningPeople = computed(() => this.homeService.getDiningPeople());
 
-    constructor(private homeService: HomeService) {
+    constructor(private homeService: HomeService, private AppUrlService: AppUrlService) {
         super();
     }
 
@@ -70,5 +71,9 @@ export class Home extends AbstractAppPage implements OnInit {
      // 获取当前时间
     getCurrentTime(): string {
         return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    navigateToStoreDetail() {
+        this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_STORE_DETAIL')]);
     }
 }

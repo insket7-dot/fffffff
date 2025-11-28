@@ -10,7 +10,11 @@ export class AppUrl {
     /** 页面导航：登录页地址页 */
     public static readonly PAGE_HOME: Url = new Url('PAGE_HOME', 'home', Method.NAVIGATOR);
 
+    /** 页面导航：菜单页地址页 */
     public static readonly PAGE_MENU: Url = new Url('PAGE_MENU', 'menu', Method.NAVIGATOR);
+
+    /** 页面导航：门店详情页地址页 */
+    public static readonly PAGE_STORE_DETAIL: Url = new Url('PAGE_STORE_DETAIL', 'store-detail', Method.NAVIGATOR);
 
     public static readonly PAGE_USERS: Url = new Url('PAGE_USERS', 'users', Method.NAVIGATOR);
 

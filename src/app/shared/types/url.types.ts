@@ -5,6 +5,7 @@ import type { Url } from '@rydeen/angular-framework';
  */
 export interface PageUrls {
     PAGE_HOME: Url;
+    PAGE_STORE_DETAIL: Url;
     PAGE_MENU: Url;
     PAGE_USERS: Url;
     PAGE_SCREEN: Url;
