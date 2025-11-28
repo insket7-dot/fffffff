@@ -1,4 +1,5 @@
-@use 'px-to-rem' as *;
+// @use 'px-to-rem' as *;
+@use "@/assets/styles/px-to-rem.scss" as *;
 
 
 .store-card {

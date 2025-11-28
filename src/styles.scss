@@ -30,12 +30,12 @@ body {
 /* 根字体大小 - 由 PostCSS 和 JavaScript 动态设置 */
 html {
     font-size: 37.5px; /* 375px 设计稿基准：1rem = 37.5px */
-    
+
     /* 响应式调整 */
     @media (max-width: 750px) {
         font-size: 37.5px; /* 375px 及以下 */
     }
-    
+
     @media (max-width: 640px) {
         font-size: 32px; /* 320px 及以下 */
     }
