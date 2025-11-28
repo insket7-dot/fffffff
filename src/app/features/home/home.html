@@ -1,70 +1,47 @@
-<ion-content class="ion-no-padding">
-    <div class="page">
-        <!-- 顶部状态栏 -->
-        <div class="status-bar">
-            <div class="status-right">
-                <app-language-selector></app-language-selector>
-            </div>
-        </div>
+<ion-content>
+    <app-carousel [images]="images" [interval]="5000"></app-carousel>
 
-        <!-- 店铺图片背景 -->
-        <div class="store-image-background">
-            <!-- 这里可以添加店铺背景图片 -->
-        </div>
+    <div class="store-card">
+        <ion-avatar class="avatar">
+            <img
+                alt="logo"
+                src="https://pic.rmb.bdstatic.com/bjh/news/3fe6db1a8d291be39192f9a06c74ce99.png"
+            />
+        </ion-avatar>
 
-        <!-- 店铺信息卡片 -->
-        <div class="store-card">
-            <div class="store-info">
-                <div class="store-logo">
-                    <span class="logo-icon">🍽️</span>
-                </div>
-                <div class="store-details">
-                    <h2 class="store-name">{{ storeInfo().name }}</h2>
-                    <p class="store-address">{{ storeInfo().address }}</p>
-                </div>
-                <div class="store-arrow">
-                    <span class="arrow-icon">➡️</span>
-                </div>
+        <div class="store-wrap">
+            <div class="store_name">YAKI</div>
+            <div class="store_desc">
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
             </div>
-            <p class="store-tagline">{{ storeInfo().tagline }}</p>
+            <div class="more"> > </div>
         </div>
-
-        <!-- 人数选择区域 -->
-        <div class="people-section">
-            <h3 class="section-title">Please select the number of diners</h3>
-            <div class="people-grid">
-                @for (num of peopleOptions; track num) {
-                    <div
-                        class="people-option"
-                        [class.selected]="selectedPeople === num"
-                        (click)="selectPeople(num)"
-                    >
-                        <span class="people-text">{{ num }}人</span>
-                    </div>
-                }
-            </div>
-            <div class="custom-people">
-                <ion-input
-                    class="custom-people-input"
-                    type="number"
-                    placeholder="Customize number of diners"
-                    [(ngModel)]="customPeopleValue"
-                    (ionChange)="selectCustomPeople()"
-                    fill="outline"
-                    inputmode="numeric"
-                />
-            </div>
-        </div>
-
-        <!-- 开始点餐按钮 -->
-        <ion-button
-            class="start-order-button"
-            [disabled]="!selectedPeople"
-            (click)="startOrder()"
-            expand="full"
-            fill="solid"
-        >
-            {{ 'page.startBtn' | translate }}
-        </ion-button>
     </div>
+
+    <div class="slogan">Authentic Chinese Flavors, Crafted with Heart</div>
+
+    <div class="diners">{{"app.home.selectNumber" | translate}}</div>
+
+    <div class="din-button">
+        @for (num of diningList; track $index) {
+            <span [class.active]="getDiningPeople() === num" (click)="selectPeople(num)">
+                {{ num }}
+            </span>
+        }
+    </div>
+    <ion-input
+        class="custom-input"
+        label=""
+        type="number"
+        [formControl]="dinerCount"
+        (ionBlur)="customBlur()"
+        placeholder="Customize number of diners"
+    ></ion-input>
+    @if (dinerCount.invalid && dinerCount.touched) {
+        <ion-note color="danger" class="note"> {{"app.home.numberValidate" | translate}} </ion-note>
+    }
+
+
+    <div class="start-button" (click)="startOrder()">{{"page.startBtn" | translate}}</div>
+
 </ion-content>

@@ -1,27 +1,49 @@
-import { Component, OnInit, computed } from '@angular/core';
+import { Component, computed, OnInit, signal } from '@angular/core';
 import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { HomeService } from './service/home.service';
-import { IonContent, IonInput, IonButton } from '@ionic/angular/standalone';
-import { FormsModule } from '@angular/forms';
-import { LanguageSelectorComponent } from '@app/shared/components/language-selector/language-selector';
+import { IonContent, IonAvatar, IonInput, IonNote } from '@ionic/angular/standalone';
+import { CarouselComponent } from '@/app/shared/components/carousel/carousel.component';
+import { CarouselImage } from '@app/shared/types/common.types';
+import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-home',
-    imports: [IonContent, FormsModule, LanguageSelectorComponent, IonInput, IonButton, TranslateModule],
+    imports: [
+        IonContent,
+        CarouselComponent,
+        IonAvatar,
+        IonInput,
+        ReactiveFormsModule,
+        IonNote,
+        TranslateModule,
+    ],
     templateUrl: './home.html',
     styleUrl: './home.scss',
 })
 export class Home extends AbstractAppPage implements OnInit {
-    // 人数选择相关
-    selectedPeople: number | null = null;
-    peopleOptions = [1, 2, 3, 4, 5, 6, 7, 8];
-    customPeopleValue: string = '';
+    images: CarouselImage[] = [
+        {
+            image: 'https://pic.rmb.bdstatic.com/bjh/news/3fe6db1a8d291be39192f9a06c74ce99.png',
+            alt: 'carousel image',
+            index: 0,
+        },
+        {
+            image: 'https://inews.gtimg.com/om_bt/OPYIh7wcoVd62WEZOJVCO1zRr46Dp6-JROXOEzv0vpk3sAA/641',
+            alt: 'carousel image',
+            index: 1,
+        },
+    ];
 
-    // 店铺信息
-    storeInfo = computed(() => this.homeService.storeInfo());
+    dinerCount = new FormControl('', [Validators.max(99), Validators.min(1)]);
 
-    constructor(public homeService: HomeService) {
+    get diningList(): number[] {
+        return Array.from({ length: 8 }, (_, i) => i + 1);
+    }
+
+    getDiningPeople = computed(() => this.homeService.getDiningPeople());
+
+    constructor(private homeService: HomeService) {
         super();
     }
 
@@ -29,32 +51,18 @@ export class Home extends AbstractAppPage implements OnInit {
         this.homeService.init();
     }
 
-    // 获取当前时间
-    getCurrentTime(): string {
-        return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-    }
-
-    // 选择人数
     selectPeople(num: number) {
-        this.selectedPeople = num;
-        this.customPeopleValue = ''; // 清空自定义输入
-        console.log(`选择了 ${num} 人用餐`);
+        this.homeService.setDiningPeople(num);
     }
 
-    // 自定义人数
-    selectCustomPeople() {
-        const num = parseInt(this.customPeopleValue);
-        if (num > 0 && num <= 20) {
-            this.selectedPeople = num;
-            console.log(`自定义选择了 ${num} 人用餐`);
+    customBlur() {
+        if (this.dinerCount.valid) {
+            this.homeService.setDiningPeople(Number(this.dinerCount.value) || 0);
         }
     }
 
-    // 开始点餐
     startOrder() {
-        if (this.selectedPeople) {
-            console.log(`开始为 ${this.selectedPeople} 人点餐`);
-            // 这里可以导航到菜单页面或其他逻辑
+        if (this.getDiningPeople() > 0) {
         }
     }
 }

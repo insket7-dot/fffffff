@@ -80,7 +80,6 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_URLS,
       useValue: AppUrl,
-    },
-    provideIonicAngular({}),
+    }, provideIonicAngular({}),
   ],
 };

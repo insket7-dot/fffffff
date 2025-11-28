@@ -60,7 +60,9 @@
                 "syncSuccess": "菜单同步成功，共 {{count}} 项数据已存入 SQLite.",
                 "syncing": "正在同步菜单数据到本地数据库..."
             },
-            "title": "首页"
+            "title": "首页",
+            "selectNumber": "请选择用餐人数",
+            "numberValidate": "人数不能超过99人"
         },
         "language": {
             "en-us": "English",
