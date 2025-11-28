@@ -62,7 +62,8 @@
             },
             "title": "首页",
             "selectNumber": "请选择用餐人数",
-            "numberValidate": "人数不能超过99人"
+            "numberValidate": "人数不能超过99人",
+            "customNumber": "自定义用餐人数"
         },
         "language": {
             "en-us": "English",

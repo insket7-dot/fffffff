@@ -2,13 +2,15 @@ import { AppUrlService } from '@app/shared/services/util/app.url.service';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { HomeService } from './service/home.service';
-import { IonContent, IonAvatar, IonInput, IonNote,IonIcon  } from '@ionic/angular/standalone';
+import { IonContent, IonAvatar, IonInput, IonNote, IonIcon } from '@ionic/angular/standalone';
 import { CarouselComponent } from '@/app/shared/components/carousel/carousel.component';
 import { CarouselImage } from '@app/shared/types/common.types';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { addIcons } from 'ionicons';
-import { chevronForwardOutline  } from 'ionicons/icons';
+import { chevronForwardOutline } from 'ionicons/icons';
+import { LanguageSelectorComponent } from '@app/shared/components/language-selector/language-selector';
+
 
 @Component({
     selector: 'app-home',
@@ -20,7 +22,8 @@ import { chevronForwardOutline  } from 'ionicons/icons';
         ReactiveFormsModule,
         IonNote,
         TranslateModule,
-        IonIcon
+        IonIcon,
+        LanguageSelectorComponent
     ],
     templateUrl: './home.html',
     styleUrl: './home.scss',
@@ -47,9 +50,12 @@ export class Home extends AbstractAppPage implements OnInit {
 
     getDiningPeople = computed(() => this.homeService.getDiningPeople());
 
-    constructor(private homeService: HomeService, private AppUrlService: AppUrlService) {
+    constructor(
+        private homeService: HomeService,
+        private AppUrlService: AppUrlService,
+    ) {
         super();
-        addIcons({ chevronForwardOutline  });
+        addIcons({ chevronForwardOutline });
     }
 
     ngOnInit() {
@@ -68,11 +74,11 @@ export class Home extends AbstractAppPage implements OnInit {
 
     startOrder() {
         if (this.getDiningPeople() > 0) {
+            this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_MENU')]);
         }
     }
 
-
-     // 获取当前时间
+    // 获取当前时间
     getCurrentTime(): string {
         return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
     }
