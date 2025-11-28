@@ -1,8 +1,12 @@
 <ion-content class="store-info-container">
+
+    <div class="back">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+    </div>
   <div class="store-info-card">
     <!-- Google Maps -->
     <div class="map-container">
-      <google-map [options]="mapOptions" height="200px">
+      <google-map [options]="mapOptions" height="100%" width="100%">
         <map-marker [options]="mapMarker"></map-marker>
       </google-map>
     </div>
@@ -11,7 +15,7 @@
     <div class="store-details">
       <h2>{{ appStoreService.storeBaseInfoValue()?.storeName || 'Store Name' }}</h2>
       <p class="store-address">{{ appStoreService.storeBaseInfoValue()?.address || 'Store Address' }}</p>
-      
+
       <!-- Open Status -->
       <div class="open-status" [class.open]="isOpen" [class.closed]="!isOpen">
         <span>{{ getOpenStatusText() }}</span>

@@ -2,11 +2,13 @@ import { AppUrlService } from '@app/shared/services/util/app.url.service';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { HomeService } from './service/home.service';
-import { IonContent, IonAvatar, IonInput, IonNote } from '@ionic/angular/standalone';
+import { IonContent, IonAvatar, IonInput, IonNote,IonIcon  } from '@ionic/angular/standalone';
 import { CarouselComponent } from '@/app/shared/components/carousel/carousel.component';
 import { CarouselImage } from '@app/shared/types/common.types';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { addIcons } from 'ionicons';
+import { chevronForwardOutline  } from 'ionicons/icons';
 
 @Component({
     selector: 'app-home',
@@ -18,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
         ReactiveFormsModule,
         IonNote,
         TranslateModule,
+        IonIcon
     ],
     templateUrl: './home.html',
     styleUrl: './home.scss',
@@ -46,6 +49,7 @@ export class Home extends AbstractAppPage implements OnInit {
 
     constructor(private homeService: HomeService, private AppUrlService: AppUrlService) {
         super();
+        addIcons({ chevronForwardOutline  });
     }
 
     ngOnInit() {
