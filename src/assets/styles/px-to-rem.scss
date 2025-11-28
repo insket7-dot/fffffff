@@ -1,31 +1,34 @@
 // ========================================
 // 响应式 px 到 rem 转换 Mixin
 // ========================================
+@use "sass:math";
+@use "sass:meta";
+@use "sass:list";
 
 /* px 到 rem 转换函数 - 基于 375px 设计稿，37.5px 基准 */
 @function px-to-rem($px, $base-font-size: 37.5px) {
-    @return ($px / $base-font-size) * 1rem;
+    @return math.div($px, $base-font-size) * 1rem;
 }
 
 /* 基础 px 到 rem 转换 mixin */
 @mixin px-to-rem($properties, $px-values, $important: false) {
-    @if type-of($properties) == list {
+    @if meta.type-of($properties) == list {
         @each $property in $properties {
             @include px-to-rem($property, $px-values, $important);
         }
     } @else {
-        @if type-of($px-values) == list {
+        @if meta.type-of($px-values) == list {
             $rem-values: ();
             @each $value in $px-values {
-                @if type-of($value) == number and unit($value) == px {
-                    $rem-values: append($rem-values, px-to-rem($value));
+                @if meta.type-of($value) == number and math.unit($value) == px {
+                    $rem-values: list.append($rem-values, px-to-rem($value));
                 } @else {
-                    $rem-values: append($rem-values, $value);
+                    $rem-values: list.append($rem-values, $value);
                 }
             }
             #{$properties}: $rem-values if($important, !important, null);
         } @else {
-            @if type-of($px-values) == number and unit($px-values) == px {
+            @if meta.type-of($px-values) == number and math.unit($px-values) == px {
                 #{$properties}: px-to-rem($px-values) if($important, !important, null);
             } @else {
                 #{$properties}: $px-values if($important, !important, null);
@@ -36,7 +39,7 @@
 
 /* 专门处理 border 的 mixin */
 @mixin border($width, $style: solid, $color: #000, $important: false) {
-    @if type-of($width) == number and unit($width) == px {
+    @if meta.type-of($width) == number and math.unit($width) == px {
         border: px-to-rem($width) $style $color if($important, !important, null);
     } @else {
         border: $width $style $color if($important, !important, null);

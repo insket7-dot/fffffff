@@ -1,5 +1,14 @@
 {
     "app": {
+        "weekday": {
+            "0": "Sunday",
+            "1": "Monday",
+            "2": "Tuesday",
+            "3": "Wednesday",
+            "4": "Thursday",
+            "5": "Friday",
+            "6": "Saturday"
+        },
         "common": {
             "back.button": "Return",
             "cancel": "Cancel",
@@ -21,7 +30,7 @@
             "save": "Save",
             "search": "Search",
             "success": "Success",
-            "title": "Cross Platform App",
+            "title": "Yaki",
             "toast.error": "Error",
             "toast.exit": "Return again and exit this application",
             "toast.info": "Prompt",
@@ -29,7 +38,12 @@
             "toast.warn": "Warning",
             "unused": "Unused",
             "used": "Used",
-            "warning": "Warning"
+            "warning": "Warning",
+            "starting": "from",
+            "total": "Total",
+            "order": "Confirm Order",
+            "versionNumber": "Version Number",
+            "deviceCode": "Device Code"
         },
         "home": {
             "actions": {
@@ -132,6 +146,32 @@
                 "phone": "Phone"
             },
             "title": "User Management"
+        },
+        "order": {
+            "total": "{{num}} item in total.",
+            "confirmTip": "Welcome to Yaki! We are ready and look forward to servingyou delicious food and heartfelt service.",
+            "confirmPlaceOrder": "Are you sure you want to place the order?"
+        },
+        "login": {
+            "pleaseEnterStoreCode": "Please enter the store code",
+            "pleaseEnterAuthCode": "Please enter the authorization code",
+            "pleaseEnter8DigitAuthCode": "Please enter the 8-digit authorization code."
+        },
+        "tip": {
+            "clearSettingFailed": "Failed to clear settings. Please try again.",
+            "businessHours": {
+                "cacheNotFound": "Business hours cache data not found",
+                "valueNotFound": "Business hours data for {{value}} not found"
+            }
+        },
+        "version": {
+            "update": {
+                "newest": "This is the latest version",
+                "invalid": "The version upgrade service is unavailable",
+                "latest": "Found a new version ({{value}}), is it updated?",
+                "success": "Download the update package successfully. Do you want to install it now?",
+                "failed": "Failed to download update package, please try again."
+            }
         }
     },
     "page": {
@@ -155,15 +195,48 @@
         "resetConfig": "Reset settings",
         "resetSystem": "Reset the ordering system",
         "loginOut": "Exit the ordering system",
-        "continue":"Whether to place an order",
-        "orderDetails":"Order Details",
-        "continueText":"Continue",
-        "addtip":"Add Tip",
-        "percentage":"percentage",
-        "fixed":"fixed"
-
-
-
-
+        "continue": "Whether to place an order",
+        "orderDetails": "Order Details",
+        "continueText": "Continue",
+        "addtip": "Add Tip",
+        "percentage": "percentage",
+        "fixed": "fixed",
+        "clear": "Clear",
+        "items": "items in total",
+        "clearAll": "Are you sure you want to clear all items in the cart?"
+    },
+    "menu": {
+        "detail": {
+            "grill": {
+                "title": "Grill",
+                "required": "Please Select Grill"
+            },
+            "spec": {
+                "title": "Spec",
+                "required": "Please select a specification"
+            },
+            "addCart": "Add Cart",
+            "combo": {
+                "required": "Please select the round.",
+                "title": "Round Group"
+            }
+        },
+        "count": "Count",
+        "cart": {
+            "deleteTip": "Are you sure you want to delete this product?",
+            "addRequired": "Please add products to the cart.",
+            "busTimeTip": "The current store is closed. Please place your order during business hours.",
+            "soldOutTip": "The following items are sold out or unavailable. Please remove them.\n {{value}}"
+        }
+    },
+    "submit": {
+        "backToHome": "Back to Home Page",
+        "success_text1": "Order submitted successfully.",
+        "success_text2": "Please pay at the counter.",
+        "totalTip": "Total Tip",
+        "tip": "Tip",
+        "orderNumber": "Order Number",
+        "takeNo": "Take No",
+        "orderAmount": "Order Amount"
     }
 }
