@@ -24,7 +24,7 @@ import { Subject, takeUntil } from 'rxjs';
                 (click)="toggleDropdown($event)"
             >
                 <span class="globe-icon">🌐</span>
-                <span class="current-language">{{ currentLanguageNativeName }}</span>
+                <span class="current-language"  [style.color]="textColor">{{ currentLanguageNativeName }}</span>
                 <span class="arrow-icon"
                     >@if (isDropdownOpen) {
                     <img src="/assets/image/icon_up1.png" />
@@ -42,6 +42,7 @@ import { Subject, takeUntil } from 'rxjs';
                          class="dropdown-option"
                          [class.active]="language.code === currentLanguage"
                          (click)="selectLanguage(language.code)"
+
                      >
                          {{ language.nativeName }}
                      </div>
@@ -62,6 +63,7 @@ export class LanguageSelectorComponent implements OnInit, OnDestroy {
 
     @Input() width?: string;
     @Input() height?: string;
+     @Input() textColor: string = '#fff';
 
     constructor(
         @Inject(LanguageService) private languageService: LanguageService,
