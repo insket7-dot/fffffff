@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, computed, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuFacadeService } from '../../shared/services/ui/menu-facade.service';
 import { CommonModule } from '@angular/common';
@@ -7,6 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { CategoryOperation } from '../../shared/constants/menu.constants';
 import { CartSummaryComponent } from '@app/shared/components/cart-summary/cart-summary';
 import { MenuHeaderComponent } from '@/app/features/menu/components/menu-header';
+import { I18nFieldPipe, PriceI18nPipe } from '@app/shared/pipes/i18n-field.pipe';
+import { restaurantOutline } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
+
+
 
 
 @Component({
@@ -14,7 +19,7 @@ import { MenuHeaderComponent } from '@/app/features/menu/components/menu-header'
   templateUrl: './menu.html',
   styleUrls: ['./menu.scss'],
   standalone: true,
-  imports: [CommonModule, TranslateModule, IonicModule, CartSummaryComponent, MenuHeaderComponent],
+  imports: [CommonModule, TranslateModule, IonicModule, CartSummaryComponent, MenuHeaderComponent,I18nFieldPipe],
 })
 export class Menu implements OnInit {
   private menuFacadeService = inject(MenuFacadeService);
@@ -22,8 +27,14 @@ export class Menu implements OnInit {
 
   // 菜单数据
   menuData = this.menuFacadeService.menuValue;
-  currentCategory = this.menuFacadeService.currentCategoryValue;
+
+  currentCategory = computed(() => this.menuFacadeService.currentCategoryValue());
   currentMenu = this.menuFacadeService.currentMenuValue;
+
+
+  constructor() {
+    addIcons({ restaurantOutline });
+  }
 
   ngOnInit() {
     // 初始化菜单数据 - MenuFacadeService不需要init方法

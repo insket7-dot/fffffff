@@ -1,28 +1,34 @@
 <ion-content class="menu-container">
-  <!-- Header -->
-  <app-menu-header></app-menu-header> 
+    <!-- Header -->
+    <app-menu-header></app-menu-header>
 
-  <!-- Main Content -->
-  <main class="menu-main">
-    <!-- Left Category Navigation -->
-    <aside class="category-nav" #categoryNav>
-      <div class="category-list">
-        @for (category of menuData(); track category.categoryId) {
-          <button 
-            class="category-item" 
-            [class.active]="currentCategory() === category.categoryId"
-            (click)="selectCategory(category.categoryId)"
-          >
-            <ion-icon name="restaurant-outline"></ion-icon>
-            <span>{{ category.categoryName }}</span>
-          </button>
-        }
-      </div>
-    </aside>
+    <!-- Main Content -->
+    <main class="menu-main">
+        <aside class="category-nav" #categoryNav>
+            <div class="category-list">
+                @for (category of menuData(); track category.categoryId) {
+                    <div
+                        class="category-item"
+                        [class.active]="currentCategory() === category.categoryId"
+                        (click)="selectCategory(category.categoryId)"
+                    >
+                        <span> {{ category | i18nField: 'categoryName' }}</span>
+                    </div>
+                }
+            </div>
+        </aside>
+        <ion-segment-view>
+            <ion-segment-content id="first">First</ion-segment-content>
+            <ion-segment-content id="second">Second</ion-segment-content>
+            <ion-segment-content id="third">Third</ion-segment-content>
+            <ion-segment-content id="1">1</ion-segment-content>
+            <ion-segment-content id="2">2</ion-segment-content>
+            <ion-segment-content id="3">3</ion-segment-content>
+        </ion-segment-view>
 
-    <!-- Right Menu Content -->
-    <section class="menu-content" #menuContent>
-      <!-- Menu Items -->
+
+        <!-- Right Menu Content -->
+        <!-- <section class="menu-content" #menuContent>
       <div class="menu-items">
         @for (item of currentMenu(); track item.productId) {
           <div class="menu-item">
@@ -42,11 +48,11 @@
           </div>
         }
       </div>
-    </section>
-  </main>
+    </section> -->
+    </main>
 
-  <!-- Footer Cart -->
-  <footer class="menu-footer">
-    <app-cart-summary></app-cart-summary>
-  </footer>
+    <!-- Footer Cart -->
+    <footer class="menu-footer">
+        <app-cart-summary></app-cart-summary>
+    </footer>
 </ion-content>

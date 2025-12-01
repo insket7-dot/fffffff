@@ -4,8 +4,8 @@
 .menu-header-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px 20px;
+  gap: px-to-rem(12px);
+  padding: px-to-rem(16px) px-to-rem(20px);
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 10;
@@ -21,10 +21,15 @@
 
 .order-type {
   display: flex;
-  gap: 8px;
+  gap: px-to-rem(8px);
 }
 
-ion-segment-button.segment-button-checked {
+::ng-deep ion-segment{
+    height: px-to-rem(36px);
+    font-size: px-to-rem(20px);
+}
+
+::ng-deep .order-type ion-segment-button.segment-button-checked {
   --color-checked: #fff;
   --indicator-color: #E97011;
   border-color: #E97011 !important;
@@ -32,12 +37,12 @@ ion-segment-button.segment-button-checked {
 }
 
 .order-type-btn {
-  padding: 8px 16px;
+  padding: px-to-rem(8px) px-to-rem(16px);
   border: 1px solid #e0e0e0;
   border-radius: 20px;
   background-color: white;
   color: #666;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -52,14 +57,14 @@ ion-segment-button.segment-button-checked {
 .store-info {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: px-to-rem(4px);
   color: #333;
   font-weight: 600;
   width: 100%;
 }
 
 .store-info ion-icon {
-  font-size: 16px;
+  font-size: px-to-rem(16px);
   color: #666;
 }
 
@@ -79,9 +84,9 @@ ion-segment-button.segment-button-checked {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  background-color: #fff3cd;
-  border-radius: 12px;
+  padding: px-to-rem(16px);
+  background-color: #FCE9DB;
+  border-radius: px-to-rem(12px);
   color: #856404;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -90,25 +95,25 @@ ion-segment-button.segment-button-checked {
 }
 
 .activity-toggle:hover {
-  background-color: #ffeeba;
+  background-color: #FCE9DB;
 }
 
 .activity-toggle p {
   margin: 0;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 500;
 }
 
 .promotion-btn {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
+  gap: px-to-rem(4px);
+  padding: px-to-rem(6px) px-to-rem(12px);
   background-color: #856404;
   color: white;
   border: none;
-  border-radius: 16px;
-  font-size: 12px;
+  border-radius: px-to-rem(16px);
+  font-size: px-to-rem(12px);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -120,7 +125,7 @@ ion-segment-button.segment-button-checked {
 }
 
 .promotion-btn ion-icon {
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   transition: transform 0.2s ease;
 }
 
@@ -130,12 +135,12 @@ ion-segment-button.segment-button-checked {
   top: calc(100% - 10px);
   left: 0;
   right: 0;
-  background-color: #fff3cd;
-  border-radius: 0 0 12px 12px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #FCE9DB;
+  border-radius: 0 0 px-to-rem(12px) px-to-rem(12px);
+  padding: px-to-rem(16px);
+  box-shadow: 0 px-to-rem(4px) px-to-rem(12px) rgba(0, 0, 0, 0.15);
   z-index: 11;
-  max-height: 200px;
+  max-height: px-to-rem(200px);
   overflow-y: auto;
   animation: slideDown 0.3s ease;
 }
@@ -143,8 +148,8 @@ ion-segment-button.segment-button-checked {
 /* Activity Item */
 .activity-item {
   display: flex;
-  gap: 12px;
-  padding: 12px 0;
+  gap: px-to-rem(12px);
+  padding: px-to-rem(12px) 0;
   border-bottom: 1px solid rgba(133, 100, 4, 0.1);
 }
 
@@ -153,8 +158,8 @@ ion-segment-button.segment-button-checked {
 }
 
 .activity-icon {
-  width: 36px;
-  height: 36px;
+  width: px-to-rem(36px);
+  height: px-to-rem(36px);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
   display: flex;
@@ -262,7 +267,7 @@ ion-segment-button.segment-button-checked {
   }
 
   .store-name {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .activity-toggle {
@@ -290,7 +295,7 @@ ion-segment-button.segment-button-checked {
   }
 
   .store-name {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .activity-toggle {
