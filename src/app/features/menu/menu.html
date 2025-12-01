@@ -1,4 +1,5 @@
-<ion-content class="menu-container">
+@if(!showDetails()) {
+    <ion-content class="menu-container">
     <!-- Header -->
     <app-menu-header></app-menu-header>
 
@@ -79,3 +80,12 @@
         <app-cart-summary></app-cart-summary>
     </footer>
 </ion-content>
+}
+
+@if (showDetails()) {
+    <menu-details-component
+        class="menu-detail"
+        [id]="detailProductId"
+        (onClose)="closeDetail()"
+    ></menu-details-component>
+}

@@ -6,11 +6,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 import { CategoryOperation } from '../../shared/constants/menu.constants';
 import { CartSummaryComponent } from '@app/shared/components/cart-summary/cart-summary';
-import { MenuHeaderComponent } from '@/app/features/menu/components/menu-header';
+import { MenuHeaderComponent } from '@/app/features/menu/components/menu-header/menu-header';
 import { I18nFieldPipe, PriceI18nPipe } from '@app/shared/pipes/i18n-field.pipe';
 import { restaurantOutline,addCircle,removeCircle } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { MenuData, menuListItem } from '@app/shared/types/menu.shared.types';
+import { DetailsComponent } from './components/details/details';
+
 
 
 @Component({
@@ -26,6 +28,7 @@ import { MenuData, menuListItem } from '@app/shared/types/menu.shared.types';
         MenuHeaderComponent,
         I18nFieldPipe,
         PriceI18nPipe,
+        DetailsComponent
     ],
 })
 export class Menu implements OnInit {
@@ -74,6 +77,11 @@ export class Menu implements OnInit {
      openDetail(item: menuListItem) {
         this.detailProductId = item.productId;
         this.showDetails.set(true);
+    }
+
+    closeDetail() {
+        this.showDetails.set(false);
+        this.detailProductId = null;
     }
 
      openCart() {

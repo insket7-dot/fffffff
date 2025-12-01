@@ -1,0 +1,51 @@
+<div class="details">
+    <div class="image" (dblclick)="close()">
+        @if (item()?.imageUrl) {
+            <img [src]="item()!.imageUrl" alt="" />
+        }
+    </div>
+
+    <div class="info">
+        <div class="info-top">
+            <div class="name" data-read>{{ item() | i18nField: 'productName' }}</div>
+            <div class="desc" data-read>{{ item()?.descriptionCn }}</div>
+        </div>
+
+        <!-- @if (item()?.productType === ProductType.PRODUCT) {
+            <app-single-item
+                #singleItemRef
+                [data]="item()"
+                (selectedChange)="selectedChange($event)"
+            ></app-single-item>
+        }
+        @if (item()?.productType === ProductType.COMBO) {
+            <app-combo-item
+                #comboItemRef
+                [data]="item()"
+                (selectedChange)="selectedChange($event)"
+            ></app-combo-item>
+        } -->
+    </div>
+    <!-- 价格 步进器-->
+    <div class="details-footer">
+        <div class="add_price">
+            <span class="price">{{ totalPrice() | priceI18n }}</span>
+
+            <div class="quantity">
+            <span class="add" (click)="decreaseQuantity()">
+                <img ngSrc="/assets/image/minus.png" alt="" height="30" width="30"/>
+            </span>
+                <span>{{ addQuantity() }}</span>
+
+                <span class="add" (click)="increaseQuantity()">
+                <img ngSrc="/assets/image/add.png" alt="" height="30" width="30"/>
+            </span>
+            </div>
+        </div>
+
+        <div class="add_button" (click)="addToCart()">
+            <img ngSrc="/assets/image/cart.png" alt="" height="56" width="61"/>
+            <span data-read>{{ 'menu.detail.addCart' | translate }}</span>
+        </div>
+    </div>
+</div>

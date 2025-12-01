@@ -1,7 +1,7 @@
 @use "px-to-rem" as *;
 
 .menu-container {
-    --ion-background-color: #f5f5f5;
+    --ion-background-color: #fff;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -46,7 +46,7 @@
 
         .right_block {
             padding: px-to-rem(20px);
-            height: px-to-rem(600px);
+            height: auto;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;

@@ -1,0 +1,86 @@
+@use "px-to-rem" as *;
+
+$img-height: 35%;
+$footer-height: 150px;
+
+.details {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+
+    .image {
+        width: 100%;
+        height: $img-height;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .info {
+        width: 100%;
+        transform: translateY(px-to-rem(-20px));
+        background-color: #fff;
+        border-top-left-radius: px-to-rem(20px);
+        border-top-right-radius: px-to-rem(20px);
+        padding: px-to-rem(20px) px-to-rem(20px) px-to-rem(60px);
+        box-sizing: border-box;
+        height: calc(100vh - $img-height - $footer-height);
+        overflow-y: auto;
+
+        &-top {
+            margin-bottom: px-to-rem(40px);
+        }
+
+        .name {
+            font-size: px-to-rem(20px);
+        }
+
+        .desc {
+            color: #999999;
+        }
+    }
+    .details-footer {
+        background-color: #fff;
+        // padding: px-to-rem(0px) px-to-rem(7px);
+        height: $footer-height;
+    }
+    .add_price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+
+        .price {
+            color: #F27E01;
+            font-size: px-to-rem(30px);
+        }
+
+        .quantity {
+            width: px-to-rem(100px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: px-to-rem(16px);
+        }
+    }
+
+    .add_button {
+        width: px-to-rem(300px);
+        height: px-to-rem(50px);
+        line-height: px-to-rem(50px);
+        text-align: center;
+        font-size: px-to-rem(20px);
+        color: #fff;
+        background-color: #F27E01;
+        border-radius: px-to-rem(10px);
+        box-sizing: border-box;
+        margin: px-to-rem(20px) auto 0;
+
+        img {
+            width: px-to-rem(22px);
+            height: px-to-rem(22px);
+            margin-right: px-to-rem(10px);
+        }
+    }
+}
