@@ -1,6 +1,11 @@
 <ion-content>
     <app-carousel [images]="images" [interval]="5000"></app-carousel>
 
+      <div class="language-selector">
+      <app-language-selector></app-language-selector>
+    </div>
+
+
     <div class="store-card">
         <ion-avatar class="avatar">
             <img
@@ -14,7 +19,7 @@
             <div class="store_desc">
                 asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
             </div>
-            <div class="more"> > </div>
+            <div class="more"> <ion-icon name="chevron-forward-outline"></ion-icon> </div>
         </div>
     </div>
 
@@ -36,7 +41,7 @@
         type="number"
         [formControl]="dinerCount"
         (ionBlur)="customBlur()"
-        placeholder="Customize number of diners"
+        [placeholder]="'app.home.customNumber' | translate"
     ></ion-input>
     @if (dinerCount.invalid && dinerCount.touched) {
         <ion-note color="danger" class="note"> {{"app.home.numberValidate" | translate}} </ion-note>

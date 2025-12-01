@@ -62,7 +62,9 @@
             },
             "title": "Home",
             "selectNumber": "Please select the number of diners",
-            "numberValidate": "The number of people cannot exceed 99 people"
+            "numberValidate": "The number of people cannot exceed 99 people",
+            "customNumber": "Custom number of diners"
+
 
         },
         "language": {

@@ -1,6 +1,10 @@
+@use 'px-to-rem' as *;
+
+
 .store-info-container {
   --ion-background-color: #f5f5f5;
   padding: 16px;
+  width: 100%;
 }
 
 .store-info-card {
@@ -10,133 +14,149 @@
   overflow: hidden;
 }
 
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: px-to-rem(50px);
+    height: px-to-rem(50px);
+    z-index: 1;
+    
+}
+
 .map-container {
   width: 100%;
-  height: 200px;
-  border-radius: 12px 12px 0 0;
+  height: px-to-rem(220px);
+  border-radius: px-to-rem(12px) px-to-rem(12px) 0 0;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .store-details {
-  padding: 20px;
-  text-align: center;
+  padding: px-to-rem(20px);
+  text-align: left;
   border-bottom: 1px solid #eee;
 }
 
 .store-details h2 {
   margin: 0 0 8px 0;
-  font-size: 24px;
+  font-size: px-to-rem(24px);
   font-weight: 600;
   color: #333;
 }
 
 .store-address {
   margin: 0 0 16px 0;
-  color: #666;
-  font-size: 16px;
+  color: #999999;
+  font-size: px-to-rem(16px);
 }
 
 .open-status {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 20px;
+//   display: inline-block;
+  padding: px-to-rem(8px) px-to-rem(16px);
+  border-radius: px-to-rem(20px);
   font-weight: 600;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .open-status.open {
-  background-color: #e8f5e8;
-  color: #2e7d32;
+  background-color: #FCEEE3;
+  color: #E86B0F;
+  width: px-to-rem(80px);
 }
 
 .open-status.closed {
   background-color: #ffebee;
-  color: #c62828;
+  color: #2e7d32;
+  width: px-to-rem(80px);
+
 }
 
 .business-hours-section,
 .contact-section {
-  padding: 20px;
+  padding: px-to-rem(20px);
 }
 
 .business-hours-section h3,
 .contact-section h3 {
-  margin: 0 0 16px 0;
-  font-size: 18px;
+  margin: 0 0 px-to-rem(16px) 0;
+  font-size: px-to-rem(18px);
   font-weight: 600;
   color: #333;
   border-bottom: 2px solid #eee;
-  padding-bottom: 8px;
+  padding-bottom: px-to-rem(8px);
 }
 
 .business-hours-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: px-to-rem(12px);
 }
 
 .hour-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
+  padding: px-to-rem(12px);
+  border-radius: px-to-rem(8px);
   transition: all 0.2s ease;
+  color: #999999;
 }
 
 .hour-item:hover {
-  background-color: #f0f0f0;
+  background-color: #F5F5F5;
 }
 
 .hour-item.today {
-  background-color: #e3f2fd;
-  border: 1px solid #bbdefb;
+//   border: 1px solid #bbdefb;
   font-weight: 600;
+  .day-name,.time-range{
+    color: #E86B0F;
+
+  }
 }
 
 .day-name {
   color: #555;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
 }
 
 .time-range {
   color: #333;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 500;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  font-size: 16px;
+  gap: px-to-rem(12px);
+  padding: px-to-rem(12px) 0;
+  font-size: px-to-rem(16px);
   color: #333;
 }
 
 .contact-item ion-icon {
-  font-size: 20px;
+  font-size: px-to-rem(20px);
   color: #666;
 }
 
 /* 响应式设计 */
 @media (min-width: 768px) {
   .store-info-container {
-    padding: 24px;
-    max-width: 800px;
+    padding: px-to-rem(24px);
+    max-width: px-to-rem(800px);
     margin: 0 auto;
   }
-  
+
   .business-hours-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .map-container {
-    height: 300px;
+    height: px-to-rem(300px);
   }
 }
 
