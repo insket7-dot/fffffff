@@ -21,7 +21,7 @@
     width: px-to-rem(50px);
     height: px-to-rem(50px);
     z-index: 1;
-    
+
 }
 
 .map-container {
@@ -92,14 +92,14 @@
 .business-hours-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: px-to-rem(12px);
+  gap: px-to-rem(2px);
 }
 
 .hour-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: px-to-rem(12px);
+  padding: px-to-rem(12px) ;
   border-radius: px-to-rem(8px);
   transition: all 0.2s ease;
   color: #999999;

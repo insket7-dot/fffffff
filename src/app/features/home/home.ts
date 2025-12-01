@@ -49,6 +49,7 @@ export class Home extends AbstractAppPage implements OnInit {
     }
 
     getDiningPeople = computed(() => this.homeService.getDiningPeople());
+    storeInfo = computed(() => this.homeService.storeInfo())
 
     constructor(
         private homeService: HomeService,
@@ -75,6 +76,11 @@ export class Home extends AbstractAppPage implements OnInit {
     startOrder() {
         if (this.getDiningPeople() > 0) {
             this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_MENU')]);
+        } else {
+             this.error(this.translate.instant('app.home.noNumber')).catch((error) =>
+                console.error(error),
+            );
+            return;
         }
     }
 

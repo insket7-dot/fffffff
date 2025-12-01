@@ -15,16 +15,16 @@
         </ion-avatar>
 
         <div class="store-wrap" (click)="navigateToStoreDetail()">
-            <div class="store_name">YAKI</div>
+            <div class="store_name">{{storeInfo().name}}</div>
             <div class="store_desc">
-                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                {{storeInfo().address}}
             </div>
             <div class="more"> <ion-icon name="chevron-forward-outline"></ion-icon> </div>
         </div>
     </div>
 
 
-    <div class="slogan">Authentic Chinese Flavors, Crafted with Heart</div>
+    <div class="slogan">{{storeInfo().tagline}}</div>
 
     <div class="diners">{{"app.home.selectNumber" | translate}}</div>
 

@@ -12,7 +12,7 @@ export class HomeService extends AbstractAppService {
    diningPeople = signal<number>(0);
 
     private readonly _storeInfo = signal<StoreInfo>({
-        name: 'StoreName',
+        name: 'yaki',
         address: '1450 Ala Moana Blvd, Honolulu...',
         tagline: 'Authentic Chinese Flavors, Crafted with Heart',
         imageUrl: ''

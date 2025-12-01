@@ -1,80 +1,88 @@
 <div class="menu-header-container">
-  <!-- First Row: Order Type and Language Selector -->
-  <div class="header-row">
-    <div class="order-type">
-      <button class="order-type-btn active">{{ 'menu.dineIn' | translate }}</button>
-      <button class="order-type-btn">{{ 'menu.takeaway' | translate }}</button>
-    </div>
-    <div class="language-selector">
-      <app-language-selector></app-language-selector>
-    </div>
-  </div>
-  
-  <!-- Second Row: Store Name -->
-  <div class="store-info">
-    <span class="store-name">{{ 'menu.storeName' | translate }}</span>
-    <ion-icon name="chevron-forward-outline"></ion-icon>
-  </div>
-  
-  <!-- Store Activity Component -->
-  <div class="store-activity-container">
-    <!-- Activity Toggle Button -->
-    <div class="activity-toggle" (click)="toggleActivity()">
-      <p>{{ 'menu.promotion' | translate }}</p>
-      <button class="promotion-btn">
-        {{ isExpanded() ? '收起' : '更多' }}
-        <ion-icon [name]="isExpanded() ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon>
-      </button>
+    <!-- First Row: Order Type and Language Selector -->
+    <div class="header-row">
+        <div class="order-type">
+            <ion-segment [value]="OrderMode.DINE_IN" (ionChange)="onSegmentChange($event)">
+                <ion-segment-button [value]="OrderMode.DINE_IN" >
+                    <ion-label>{{ 'menu.dineIn' | translate }}</ion-label>
+                </ion-segment-button>
+                <ion-segment-button [value]="OrderMode.TAKE_OUT" >
+                    <ion-label>{{ 'menu.takeaway' | translate }}</ion-label>
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+        <div class="language-selector">
+            <app-language-selector></app-language-selector>
+        </div>
     </div>
 
-    <!-- Activity Expanded Content -->
-    @if (isExpanded()) {
-      <div class="activity-backdrop" (click)="closeActivity()"></div>
-      <div class="activity-expanded">
-        <!-- Activity Item 1 -->
-        <div class="activity-item">
-          <div class="activity-icon">
-            <ion-icon name="star-outline"></ion-icon>
-          </div>
-          <div class="activity-info">
-            <h4>{{ 'menu.memberDay' | translate }}</h4>
-            <p>{{ 'menu.memberDayDesc' | translate }}</p>
-          </div>
+    <!-- Second Row: Store Name -->
+    <div class="store-info" (click)="navigateToStoreDetail()">
+        <span class="store-name">{{storeInfo().name}}</span>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <!-- Store Activity Component -->
+    <div class="store-activity-container">
+        <!-- Activity Toggle Button -->
+        <div class="activity-toggle" (click)="toggleActivity()">
+            <p>{{ 'menu.promotion' | translate }}</p>
+            <button class="promotion-btn">
+                {{ isExpanded() ? '收起' : '更多' }}
+                <ion-icon
+                    [name]="isExpanded() ? 'chevron-up-outline' : 'chevron-down-outline'"
+                ></ion-icon>
+            </button>
         </div>
-        
-        <!-- Activity Item 2 -->
-        <div class="activity-item">
-          <div class="activity-icon">
-            <ion-icon name="gift-outline"></ion-icon>
-          </div>
-          <div class="activity-info">
-            <h4>{{ 'menu.newProduct' | translate }}</h4>
-            <p>{{ 'menu.newProductDesc' | translate }}</p>
-          </div>
-        </div>
-        
-        <!-- Activity Item 3 -->
-        <div class="activity-item">
-          <div class="activity-icon">
-            <ion-icon name="pricetag-outline"></ion-icon>
-          </div>
-          <div class="activity-info">
-            <h4>{{ 'menu.discount' | translate }}</h4>
-            <p>{{ 'menu.discountDesc' | translate }}</p>
-          </div>
-        </div>
-        
-        <!-- Activity Item 4 -->
-        <div class="activity-item">
-          <div class="activity-icon">
-            <ion-icon name="calendar-outline"></ion-icon>
-          </div>
-          <div class="activity-info">
-            <h4>{{ 'menu.holidaySpecial' | translate }}</h4>
-            <p>{{ 'menu.holidaySpecialDesc' | translate }}</p>
-          </div>
-        </div>
-      </div>
-    }
-  </div>
+
+        <!-- Activity Expanded Content -->
+        @if (isExpanded()) {
+            <div class="activity-backdrop" (click)="closeActivity()"></div>
+            <div class="activity-expanded">
+                <!-- Activity Item 1 -->
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+                    <div class="activity-info">
+                        <h4>{{ 'menu.memberDay' | translate }}</h4>
+                        <p>{{ 'menu.memberDayDesc' | translate }}</p>
+                    </div>
+                </div>
+
+                <!-- Activity Item 2 -->
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <ion-icon name="gift-outline"></ion-icon>
+                    </div>
+                    <div class="activity-info">
+                        <h4>{{ 'menu.newProduct' | translate }}</h4>
+                        <p>{{ 'menu.newProductDesc' | translate }}</p>
+                    </div>
+                </div>
+
+                <!-- Activity Item 3 -->
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <ion-icon name="pricetag-outline"></ion-icon>
+                    </div>
+                    <div class="activity-info">
+                        <h4>{{ 'menu.discount' | translate }}</h4>
+                        <p>{{ 'menu.discountDesc' | translate }}</p>
+                    </div>
+                </div>
+
+                <!-- Activity Item 4 -->
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                    </div>
+                    <div class="activity-info">
+                        <h4>{{ 'menu.holidaySpecial' | translate }}</h4>
+                        <p>{{ 'menu.holidaySpecialDesc' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

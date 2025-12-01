@@ -61,9 +61,10 @@
                 "syncing": "正在同步菜單數據到本地數據庫..."
             },
             "title": "首頁",
-             "selectNumber": "請選擇用餐人数",
+            "selectNumber": "請選擇用餐人数",
             "numberValidate": "人数不能超過99人",
-            "customNumber": "自定義用餐人数"
+            "customNumber": "自定義用餐人数",
+            "noNumber": "請选择用餐人数"
         },
         "language": {
             "en-us": "English",

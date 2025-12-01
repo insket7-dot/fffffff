@@ -9,6 +9,7 @@ import { addIcons } from 'ionicons';
 import { chevronBackOutline } from 'ionicons/icons';
 import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { AppUrlService } from '@app/shared/services/util/app.url.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -82,7 +83,7 @@ export class StoreInfo extends AbstractAppPage implements OnInit {
 
     // 当前营业状态
     isOpen = false;
-    constructor(private AppUrlService: AppUrlService) {
+    constructor(private AppUrlService: AppUrlService, private location: Location) {
         super()
         addIcons({ chevronBackOutline });
     }
@@ -129,6 +130,7 @@ export class StoreInfo extends AbstractAppPage implements OnInit {
 
 
     backToHome() {
-        this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_HOME')]);
+        // this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_HOME')]);
+        this.location.back();
     }
 }
