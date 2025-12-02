@@ -56,21 +56,32 @@ export abstract class AbstractAppService extends AbstractService {
         const deviceIdLoadStatus = await this.modelStateService.ensureDeviceIdLoaded();
 
         // 构建请求数据，根据设备ID加载状态添加deviceCode
-        // 如果设备ID加载状态为SKIPPED，直接使用原始body
+        // 如果设备ID加载状态为SKIPPED，直接使用原始请求体
         // 否则，添加deviceCode到请求体
-        const data =
+        const data = 
             deviceIdLoadStatus === DeviceIdLoadStatus.SKIPPED
-                ? body
-                : { ...body, storeCode: this.modelStateService.storeCodeValue() };
+            ? body
+            : { ...body, storeCode: this.modelStateService.storeCodeValue() };
 
-        if (!['HEART_BEAT'].includes(url.name) && !this.modelStateService.silentLoadValue()) {
+        const showLoading = !['HEART_BEAT'].includes(url.name) && !this.modelStateService.silentLoadValue();
+        if (showLoading) {
             this.eventManager.publish(AppEvent.SHOW_GLOBAL_LOADING, true);
         }
 
-        return await super.request<T>(url, data, header, async () => {
-            this.eventManager.publish(AppEvent.SHOW_GLOBAL_LOADING, false);
-            // 重置静默加载状态
-            this.modelStateService.setSilentLoad(false);
-        });
+        try {
+            return await super.request<T>(url, data, header, async () => this.clearStatus());
+        } catch (error) {
+            this.clearStatus();
+            throw error;
+        }
+    }
+
+    /**
+     * @desc 清除全局加载状态
+     */
+    private clearStatus() {
+        this.eventManager.publish(AppEvent.SHOW_GLOBAL_LOADING, false);
+        // 重置静默加载状态
+        this.modelStateService.setSilentLoad(false);
     }
 }
