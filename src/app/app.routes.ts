@@ -29,5 +29,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/menu/menu').then((m) => m.Menu),
     pathMatch: 'full',
   },
+  {
+    path: 'orderConfirm',
+    loadComponent: () => import('./features/orderConfirm/orderConfirm').then((m) => m.OrderConfirm),
+    pathMatch: 'full',
+  },
+
 ];
 

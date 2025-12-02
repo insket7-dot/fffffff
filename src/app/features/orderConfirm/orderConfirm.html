@@ -1,0 +1,14 @@
+<ion-content class="ion-padding">
+
+  <ion-segment
+    [(ngModel)]="selectedWayValue"
+    class="mb-4"
+    (ionChange)="onDiningTypeChange($event)"
+  >
+    @for(item of wayList(); track item.type) {
+      <ion-segment-button [value]="item.type">
+        <ion-label>{{item.name | translate}}</ion-label>
+      </ion-segment-button>
+    }
+  </ion-segment>
+</ion-content>

@@ -12,6 +12,8 @@ import { restaurantOutline,addCircle,removeCircle } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { MenuData, menuListItem } from '@app/shared/types/menu.shared.types';
 import { DetailsComponent } from './components/details/details';
+import { AppUrlService } from '@app/shared/services/util/app.url.service';
+import { AbstractAppPage } from '@/app/shared/abstracts/abstract.app.page';
 
 
 
@@ -31,7 +33,7 @@ import { DetailsComponent } from './components/details/details';
         DetailsComponent
     ],
 })
-export class Menu implements OnInit {
+export class Menu  extends AbstractAppPage implements OnInit {
     private menuFacadeService = inject(MenuFacadeService);
     private translateService = inject(TranslateService);
 
@@ -45,7 +47,8 @@ export class Menu implements OnInit {
 
     detailProductId: string | null = null;
 
-    constructor() {
+    constructor(private AppUrlService: AppUrlService) {
+        super()
         addIcons({ restaurantOutline,addCircle,removeCircle });
     }
 
@@ -86,5 +89,9 @@ export class Menu implements OnInit {
 
      openCart() {
 
+    }
+
+    orderConfirm() {
+        this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_ORDER_CONFIRM')]);
     }
 }

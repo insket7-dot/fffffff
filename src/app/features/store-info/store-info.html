@@ -6,9 +6,12 @@
   <div class="store-info-card">
     <!-- Google Maps -->
     <div class="map-container">
-      <google-map [options]="mapOptions" height="100%" width="100%">
-        <map-marker [options]="mapMarker"></map-marker>
-      </google-map>
+     @if(mapLoaded()) {
+           <google-map [options]="mapOptions" height="100%" width="100%">
+             <map-marker [options]="mapMarker"></map-marker>
+           </google-map>
+
+        }
     </div>
 
     <!-- Store Info -->

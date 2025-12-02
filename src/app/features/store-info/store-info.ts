@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { GoogleMap, MapMarker } from '@angular/google-maps';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,7 +11,6 @@ import { AbstractAppPage } from '@app/shared/abstracts/abstract.app.page';
 import { AppUrlService } from '@app/shared/services/util/app.url.service';
 import { Location } from '@angular/common';
 
-
 @Component({
     selector: 'app-store-info',
     templateUrl: './store-info.html',
@@ -23,6 +22,8 @@ export class StoreInfo extends AbstractAppPage implements OnInit {
     protected appStoreService = inject(AppStoreService);
     protected dateUtils = inject(DateUtils);
     private translateService = inject(TranslateService);
+
+    mapLoaded = signal<boolean>(false);
 
     // 地图配置
     mapOptions: google.maps.MapOptions = {
@@ -83,8 +84,11 @@ export class StoreInfo extends AbstractAppPage implements OnInit {
 
     // 当前营业状态
     isOpen = false;
-    constructor(private AppUrlService: AppUrlService, private location: Location) {
-        super()
+    constructor(
+        private AppUrlService: AppUrlService,
+        private location: Location,
+    ) {
+        super();
         addIcons({ chevronBackOutline });
     }
 
@@ -97,6 +101,32 @@ export class StoreInfo extends AbstractAppPage implements OnInit {
 
         // 检查营业状态
         this.isOpen = this.isStoreOpen();
+
+        this.waitForMapsToLoad();
+    }
+
+    private waitForMapsToLoad() {
+        // 检查API是否已加载
+        if (window.google && window.google.maps) {
+            this.mapLoaded.set(true);
+            return;
+        }
+
+        // 轮询检查API是否加载完成
+        const checkInterval = setInterval(() => {
+            if (window.google && window.google.maps) {
+                clearInterval(checkInterval);
+                this.mapLoaded.set(true);
+            }
+        }, 100);
+
+        // 超时处理（10秒后仍未加载则提示错误）
+        setTimeout(() => {
+            clearInterval(checkInterval);
+            if (!this.mapLoaded) {
+                console.error('Google Maps API加载超时，请检查网络或API密钥');
+            }
+        }, 10000);
     }
 
     /**
@@ -127,7 +157,6 @@ export class StoreInfo extends AbstractAppPage implements OnInit {
         // 从AppStoreService获取门店坐标（当前接口暂未提供坐标数据）
         // 预留方法，后续可根据实际接口返回数据进行调整
     }
-
 
     backToHome() {
         // this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_HOME')]);

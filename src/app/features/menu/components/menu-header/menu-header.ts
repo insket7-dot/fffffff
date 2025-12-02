@@ -9,19 +9,23 @@ import { chevronForwardOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { AbstractAppPage } from '@/app/shared/abstracts/abstract.app.page';
 import { AppUrlService } from '@app/shared/services/util/app.url.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-menu-header',
     templateUrl: './menu-header.html',
     styleUrls: ['./menu-header.scss'],
     standalone: true,
-    imports: [TranslateModule, IonicModule, LanguageSelectorComponent],
+    imports: [TranslateModule, IonicModule, LanguageSelectorComponent, FormsModule],
 })
 export class MenuHeaderComponent extends AbstractAppPage {
     // 活动展开状态
     isExpanded = signal(false);
 
     OrderMode = OrderMode;
+
+    private curWayValue = computed(() => this.modelStateService.curWayValue());
+    selectedWayValue = signal<string>('');
 
     constructor(
         private modelStateService: ModelStateService,
@@ -30,6 +34,8 @@ export class MenuHeaderComponent extends AbstractAppPage {
     ) {
         super();
         addIcons({ chevronForwardOutline });
+        this.selectedWayValue.set(this.curWayValue());
+
     }
 
     curWay = computed(() => this.modelStateService.curWayValue());

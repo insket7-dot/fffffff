@@ -2,7 +2,7 @@
     <!-- First Row: Order Type and Language Selector -->
     <div class="header-row">
         <div class="order-type">
-            <ion-segment [value]="OrderMode.DINE_IN" (ionChange)="onSegmentChange($event)">
+            <ion-segment [(ngModel)]="selectedWayValue" (ionChange)="onSegmentChange($event)">
                 <ion-segment-button [value]="OrderMode.DINE_IN" >
                     <ion-label>{{ 'menu.dineIn' | translate }}</ion-label>
                 </ion-segment-button>

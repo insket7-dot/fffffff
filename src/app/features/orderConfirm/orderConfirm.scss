@@ -1,0 +1,17 @@
+@use "px-to-rem" as *;
+
+
+ion-segment{
+    height: px-to-rem(40px);
+
+    ion-label{
+
+        font-size: px-to-rem(18px);
+    }
+}
+
+.segment-button-checked{
+    background-color: var(--app-primary-color) !important;
+    --indicator-color: var(--app-primary-color);
+    color: #fff;
+}

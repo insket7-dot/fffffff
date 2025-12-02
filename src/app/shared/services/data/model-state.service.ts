@@ -11,7 +11,7 @@ export class ModelStateService {
     private readonly router = inject(Router);
     private readonly appUrlService = inject(AppUrlService);
     private readonly _curModel = signal<string>(MenuType.NORMAL);
-    private readonly _curWay = signal<string>('');
+    private readonly _curWay = signal<string>(OrderMode.DINE_IN);
     private readonly _deviceId = signal<string>('');
     private readonly _storeCode = signal<string>('');
     private initialized = false;
