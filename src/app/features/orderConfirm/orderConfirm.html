@@ -1,14 +1,92 @@
+<div class="back">
+    <ion-icon name="chevron-back-outline" style="font-size: 20px" (click)="back()"></ion-icon>
+</div>
 <ion-content class="ion-padding">
+    <ion-segment
+        [(ngModel)]="selectedWayValue"
+        class="mb-4"
+        (ionChange)="onDiningTypeChange($event)"
+    >
+        @for (item of wayList(); track item.type) {
+            <ion-segment-button [value]="item.type">
+                <ion-label>{{ item.name | translate }}</ion-label>
+            </ion-segment-button>
+        }
+    </ion-segment>
 
-  <ion-segment
-    [(ngModel)]="selectedWayValue"
-    class="mb-4"
-    (ionChange)="onDiningTypeChange($event)"
-  >
-    @for(item of wayList(); track item.type) {
-      <ion-segment-button [value]="item.type">
-        <ion-label>{{item.name | translate}}</ion-label>
-      </ion-segment-button>
-    }
-  </ion-segment>
+    <div class="order_info">
+        <span class="verify">{{"order.verify" | translate}}</span>
+        <div class="store_div">
+            <div class="store_name">StoreName</div>
+            <div class="store_info">
+                <ion-icon name="location"></ion-icon> <span>asdasdasd</span>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+        </div>
+
+        <form [formGroup]="userForm" class="form-container">
+            <div class="form-row">
+                <label class="form-label"> <span class="required">*</span> {{ 'order.name' | translate }} </label>
+                <ion-input
+                    formControlName="name"
+                    type="text"
+                    placeholder=""
+                    class="form-input"
+                    [class.invalid]="formControls['name'].touched && formControls['name'].invalid"
+                ></ion-input>
+                @if (formControls['name'].touched && formControls['name'].invalid) {
+                    <ion-text color="danger" class="error-msg">
+                        {{ getErrorMsg('name') | translate}}
+                    </ion-text>
+                }
+            </div>
+
+            <div class="form-row">
+                <label class="form-label"> <span class="required">*</span> {{ 'order.phone' | translate }} </label>
+                <ion-input
+                    formControlName="phone"
+                    type="tel"
+                    placeholder=""
+                    class="form-input"
+                    [class.invalid]="formControls['phone'].touched && formControls['phone'].invalid"
+                ></ion-input>
+                <ion-button
+                    slot="end"
+                    fill="solid"
+                    color="warning"
+                    class="code-btn"
+                    [disabled]="
+                        isCodeBtnDisabled ||
+                        (formControls['phone'].invalid && formControls['phone'].touched)
+                    "
+                    (click)="sendCode()"
+                >
+                    {{ codeTimer > 0 ? `${codeTimer}s` : 'Request Code' }}
+                </ion-button>
+
+                @if (formControls['phone'].touched && formControls['phone'].invalid) {
+                    <ion-text color="danger" class="error-msg">
+                        {{ getErrorMsg('phone') | translate}}
+                    </ion-text>
+                }
+            </div>
+
+            <div class="form-row">
+                <label class="form-label"> <span class="required">*</span> {{ 'order.code' | translate }} </label>
+                <ion-input
+                    formControlName="code"
+                    type="number"
+                    placeholder=""
+                    class="form-input"
+                    [class.invalid]="formControls['code'].touched && formControls['code'].invalid"
+                ></ion-input>
+
+                @if (formControls['code'].touched && formControls['code'].invalid) {
+                    <ion-text color="danger" class="error-msg">
+                        {{ getErrorMsg('code') | translate}}
+                    </ion-text>
+                }
+            </div>
+        </form>
+    </div>
 </ion-content>

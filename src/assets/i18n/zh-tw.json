@@ -1,266 +1,280 @@
 {
-    "app": {
-        "weekday": {
-            "0": "週日",
-            "1": "週一",
-            "2": "週二",
-            "3": "週三",
-            "4": "週四",
-            "5": "週五",
-            "6": "週六"
-        },
-        "common": {
-            "back.button": "返回",
-            "cancel": "取消",
-            "close": "關閉",
-            "confirm": "確定",
-            "confirmMessage": "確定要執行此操作嗎？",
-            "confirmTitle": "請確認",
-            "dateFormat": "yyyy/MM/dd",
-            "dateTimeFormat": "yyyy/MM/dd HH:mm:ss",
-            "delete": "刪除",
-            "error": "錯誤",
-            "info": "提示",
-            "loading": "加載中...",
-            "network.error": "服務請求失敗，請檢查網路是否可用。",
-            "noData": "暫無數據",
-            "request.failure": "請求失敗",
-            "request.type.error": "請求位址類型錯誤，資料介面請求僅支援DATA類型。",
-            "request.waiting": "請求中，請稍候…",
-            "save": "保存",
-            "search": "搜索",
-            "success": "成功",
-            "title": "Yaki",
-            "toast.error": "錯誤",
-            "toast.exit": "再次返回退出本應用",
-            "toast.info": "提示",
-            "toast.success": "成功",
-            "toast.warn": "警告",
-            "unused": "未用完",
-            "used": "已用完",
-            "warning": "警告",
-            "starting": "起",
-            "total": "合計",
-            "order": "下單",
-            "versionNumber": "版本號",
-            "deviceCode": "設備編碼"
-        },
-        "home": {
-            "actions": {
-                "searchButton": "搜索菜品",
-                "searchKeyword": "搜索關鍵字",
-                "searchPlaceholder": "請輸入商品/標籤",
-                "syncMenu": "Worker：拉取最新菜單"
-            },
-            "description": "這是獨立的首頁組件。",
-            "messages": {
-                "searchComplete": "查詢完成，關鍵字\"{{keyword}}\"，匹配 {{count}} 項",
-                "searchFailed": "菜單搜索失敗: {{error}}",
-                "syncFailed": "菜單同步失敗: {{error}}",
-                "syncSuccess": "菜單同步成功，共 {{count}} 項數據已存入 SQLite。",
-                "syncing": "正在同步菜單數據到本地數據庫..."
-            },
-            "title": "首頁",
-            "selectNumber": "請選擇用餐人数",
-            "numberValidate": "人数不能超過99人",
-            "customNumber": "自定義用餐人数",
-            "noNumber": "請选择用餐人数"
-        },
-        "language": {
-            "en-us": "English",
-            "select": "選擇語言",
-            "zh-cn": "简体中文",
-            "zh-tw": "繁體中文"
-        },
-        "material": {
-            "datepicker": {
-                "close": "關閉日曆",
-                "open": "打開日曆"
-            },
-            "select": {
-                "placeholder": "請選擇"
-            }
-        },
-        "menu": {
-            "noData": "暫無本地菜單數據，請先在首頁處理並緩存。",
-            "title": "菜單項"
-        },
-        "navigation": {
-            "home": "首頁",
-            "menu": "菜單項",
-            "scan": "開始掃碼",
-            "users": "用戶管理"
-        },
-        "system": {
-            "database": {
-                "initSuccess": "數據庫初始化成功",
-                "loadFailed": "加載失敗",
-                "notInitialized": "數據庫未初始化",
-                "ready": "數據庫已就緒"
-            }
-        },
-        "users": {
-            "add": "新增用戶",
-            "delete": "刪除用戶",
-            "deleteSelected": "刪除選中用戶",
-            "dialog": {
-                "add": "新增用戶",
-                "batchDeleteMessage": "確認刪除 {{count}} 個選中用戶？",
-                "batchDeleteTitle": "刪除選中用戶",
-                "deleteMessage": "確認刪除用戶 {{name}}？",
-                "deleteTitle": "刪除用戶",
-                "edit": "編輯用戶"
-            },
-            "edit": "編輯用戶",
-            "filters": {
-                "birthdayEnd": "生日止",
-                "birthdayStart": "生日起",
-                "endDatePlaceholder": "選擇結束日期",
-                "endDateTitle": "結束日期",
-                "gender": "性別",
-                "genderAll": "全部",
-                "keyword": "關鍵字（ID/姓名/郵箱/電話）",
-                "keywordPlaceholder": "輸入後回車查詢",
-                "startDatePlaceholder": "選擇開始日期",
-                "startDateTitle": "開始日期"
-            },
-            "form": {
-                "birthday": "生日",
-                "email": "郵箱",
-                "gender": "性別",
-                "gender.female": "女",
-                "gender.male": "男",
-                "gender.other": "其他",
-                "gender.placeholder": "未選擇",
-                "name": "姓名",
-                "phone": "手機"
-            },
-            "resetFilters": "重置篩選",
-            "table": {
-                "actions": "操作",
-                "birthday": "生日",
-                "created_at": "創建時間",
-                "email": "郵箱",
-                "gender": "性別",
-                "id": "ID",
-                "name": "姓名",
-                "phone": "手機"
-            },
-            "title": "用戶管理"
-        },
-        "order": {
-            "total": "總數量{{num}}個",
-            "confirmTip": "歡迎來到 Yaki！我們已經準備就緒，期待為您奉上美味的食物和貼心的服務。",
-            "confirmPlaceOrder": "確認下單嘛？"
-        },
-        "login": {
-            "pleaseEnterStoreCode": "請輸入門店編碼",
-            "pleaseEnterAuthCode": "請輸入授權碼",
-            "pleaseEnter8DigitAuthCode": "請輸入8位授權碼"
-        },
-        "tip": {
-            "clearSettingFailed": "清除設定失敗，請重試",
-            "businessHours": {
-                "cacheNotFound": "未找到營業時間緩存資料",
-                "valueNotFound": "未找到 {{value}} 的營業時間資料"
-            }
-        },
-        "version": {
-            "update": {
-                "newest": "已是最新版本",
-                "invalid": "版本升級服務無法使用",
-                "latest": "發現新版本({{value}})，是否更新？",
-                "success": "下載更新包成功，是否立即安裝？",
-                "failed": "下載更新包失敗，請重試。"
-            }
-        }
+  "app": {
+    "weekday": {
+      "0": "週日",
+      "1": "週一",
+      "2": "週二",
+      "3": "週三",
+      "4": "週四",
+      "5": "週五",
+      "6": "週六"
     },
-    "page": {
-        "model1": "普通模式",
-        "model2": "無障礙模式",
-        "startBtn": "開始點餐",
-        "text1": "點擊開始點餐",
-        "tip": "選擇點餐方式",
-        "way1": "堂食",
-        "way2": "外帶",
-        "tip2": "提示",
-        "tip3": "由於長時間無操作，系統將在 {{time}} 秒內返回主頁",
-        "storeCode": "門店編碼",
-        "storeCodeRequired": "門店編碼不能為空",
-        "authCode": "授權碼",
-        "authCodeRequired": "授權碼不能為空",
-        "exitAccessibilityModel": "退出無障礙模式",
-        "selectWay": "請選擇點餐方式",
-        "password": "密碼",
-        "passwordRequired": "密碼不能為空",
-        "resetConfig": "重置設定",
-        "resetSystem": "重置點餐系統",
-        "loginOut": "退出點餐系統",
-        "continue": "是否下單",
-        "orderDetails": "訂單詳情",
-        "continueText": "繼續點餐",
-        "addtip": "添加小費",
-        "percentage": "比例",
-        "fixed": "固定",
-        "clear": "清除",
-        "items": "總數",
-        "clearAll": "請確認是否清除購物車所有菜品?"
+    "common": {
+      "back.button": "返回",
+      "cancel": "取消",
+      "close": "關閉",
+      "confirm": "確定",
+      "confirmMessage": "確定要執行此操作嗎？",
+      "confirmTitle": "請確認",
+      "dateFormat": "yyyy/MM/dd",
+      "dateTimeFormat": "yyyy/MM/dd HH:mm:ss",
+      "delete": "刪除",
+      "error": "錯誤",
+      "info": "提示",
+      "loading": "加載中...",
+      "network.error": "服務請求失敗，請檢查網路是否可用。",
+      "noData": "暫無數據",
+      "request.failure": "請求失敗",
+      "request.type.error": "請求位址類型錯誤，資料介面請求僅支援DATA類型。",
+      "request.waiting": "請求中，請稍候…",
+      "save": "保存",
+      "search": "搜索",
+      "success": "成功",
+      "title": "Yaki",
+      "toast.error": "錯誤",
+      "toast.exit": "再次返回退出本應用",
+      "toast.info": "提示",
+      "toast.success": "成功",
+      "toast.warn": "警告",
+      "unused": "未用完",
+      "used": "已用完",
+      "warning": "警告",
+      "starting": "起",
+      "total": "合計",
+      "order": "下單",
+      "versionNumber": "版本號",
+      "deviceCode": "設備編碼"
+    },
+    "home": {
+      "actions": {
+        "searchButton": "搜索菜品",
+        "searchKeyword": "搜索關鍵字",
+        "searchPlaceholder": "請輸入商品/標籤",
+        "syncMenu": "Worker：拉取最新菜單"
+      },
+      "description": "這是獨立的首頁組件。",
+      "messages": {
+        "searchComplete": "查詢完成，關鍵字\"{{keyword}}\"，匹配 {{count}} 項",
+        "searchFailed": "菜單搜索失敗: {{error}}",
+        "syncFailed": "菜單同步失敗: {{error}}",
+        "syncSuccess": "菜單同步成功，共 {{count}} 項數據已存入 SQLite。",
+        "syncing": "正在同步菜單數據到本地數據庫..."
+      },
+      "title": "首頁",
+      "selectNumber": "請選擇用餐人数",
+      "numberValidate": "人数不能超過99人",
+      "customNumber": "自定義用餐人数",
+      "noNumber": "請选择用餐人数"
+    },
+    "language": {
+      "en-us": "English",
+      "select": "選擇語言",
+      "zh-cn": "简体中文",
+      "zh-tw": "繁體中文"
+    },
+    "material": {
+      "datepicker": {
+        "close": "關閉日曆",
+        "open": "打開日曆"
+      },
+      "select": {
+        "placeholder": "請選擇"
+      }
     },
     "menu": {
-        "promotion": "了解店鋪最新更新和",
-        "more": "更多",
-        "total": "合計",
-        "confirm": "確認",
-        "dineIn": "堂食",
-        "takeaway": "外帶",
-        "english": "English",
-        "storeName": "StoreName",
-        "storeActivities": "店鋪活動",
-        "memberDay": "會員日",
-        "memberDayDesc": "每週三所有產品享受9折優惠",
-        "newProduct": "新品上市",
-        "newProductDesc": "嘗試我們的新招牌菜",
-        "discount": "特別優惠",
-        "discountDesc": "限時享受獨家折扣",
-        "holidaySpecial": "節日特惠",
-        "holidaySpecialDesc": "節假日和特殊場合特別優惠",
-        "detail": {
-            "grill": {
-                "title": "加料",
-                "required": "請選擇加料"
-            },
-            "spec": {
-                "title": "規格",
-                "required": "請選擇規格"
-            },
-            "addCart": "加入購物車",
-            "combo": {
-                "required": "請選擇輪次",
-                "title": "輪次組"
-            }
-        },
-        "count": "數量",
-        "cart": {
-            "deleteTip": "確定刪除商品嗎？",
-            "addRequired": "請加購商品",
-            "busTimeTip": "當前門店未營業，請在營業時間內下單",
-            "soldOutTip": "以下商品已售罄/下架，請刪除\n {{value}}"
-        }
+      "noData": "暫無本地菜單數據，請先在首頁處理並緩存。",
+      "title": "菜單項"
     },
-    "submit": {
-        "backToHome": "返回首頁",
-        "success_text1": "訂單提交成功",
-        "success_text2": "請到前台付款",
-        "totalTip": "小費合計",
-        "tip": "小費",
-        "orderNumber": "訂單號",
-        "takeNo": "取餐號",
-        "orderAmount": "訂單金額"
+    "navigation": {
+      "home": "首頁",
+      "menu": "菜單項",
+      "scan": "開始掃碼",
+      "users": "用戶管理"
     },
-    "storeInfo": {
-        "open": "營業中",
-        "closed": "已打烊",
-        "businessHours": "營業時間",
-        "contact": "聯繫方式"
+    "system": {
+      "database": {
+        "initSuccess": "數據庫初始化成功",
+        "loadFailed": "加載失敗",
+        "notInitialized": "數據庫未初始化",
+        "ready": "數據庫已就緒"
+      }
+    },
+    "users": {
+      "add": "新增用戶",
+      "delete": "刪除用戶",
+      "deleteSelected": "刪除選中用戶",
+      "dialog": {
+        "add": "新增用戶",
+        "batchDeleteMessage": "確認刪除 {{count}} 個選中用戶？",
+        "batchDeleteTitle": "刪除選中用戶",
+        "deleteMessage": "確認刪除用戶 {{name}}？",
+        "deleteTitle": "刪除用戶",
+        "edit": "編輯用戶"
+      },
+      "edit": "編輯用戶",
+      "filters": {
+        "birthdayEnd": "生日止",
+        "birthdayStart": "生日起",
+        "endDatePlaceholder": "選擇結束日期",
+        "endDateTitle": "結束日期",
+        "gender": "性別",
+        "genderAll": "全部",
+        "keyword": "關鍵字（ID/姓名/郵箱/電話）",
+        "keywordPlaceholder": "輸入後回車查詢",
+        "startDatePlaceholder": "選擇開始日期",
+        "startDateTitle": "開始日期"
+      },
+      "form": {
+        "birthday": "生日",
+        "email": "郵箱",
+        "gender": "性別",
+        "gender.female": "女",
+        "gender.male": "男",
+        "gender.other": "其他",
+        "gender.placeholder": "未選擇",
+        "name": "姓名",
+        "phone": "手機"
+      },
+      "resetFilters": "重置篩選",
+      "table": {
+        "actions": "操作",
+        "birthday": "生日",
+        "created_at": "創建時間",
+        "email": "郵箱",
+        "gender": "性別",
+        "id": "ID",
+        "name": "姓名",
+        "phone": "手機"
+      },
+      "title": "用戶管理"
+    },
+    "order": {
+      "total": "總數量{{num}}個",
+      "confirmTip": "歡迎來到 Yaki！我們已經準備就緒，期待為您奉上美味的食物和貼心的服務。",
+      "confirmPlaceOrder": "確認下單嘛？"
+    },
+    "login": {
+      "pleaseEnterStoreCode": "請輸入門店編碼",
+      "pleaseEnterAuthCode": "請輸入授權碼",
+      "pleaseEnter8DigitAuthCode": "請輸入8位授權碼"
+    },
+    "tip": {
+      "clearSettingFailed": "清除設定失敗，請重試",
+      "businessHours": {
+        "cacheNotFound": "未找到營業時間緩存資料",
+        "valueNotFound": "未找到 {{value}} 的營業時間資料"
+      }
+    },
+    "version": {
+      "update": {
+        "newest": "已是最新版本",
+        "invalid": "版本升級服務無法使用",
+        "latest": "發現新版本({{value}})，是否更新？",
+        "success": "下載更新包成功，是否立即安裝？",
+        "failed": "下載更新包失敗，請重試。"
+      }
     }
+  },
+  "page": {
+    "model1": "普通模式",
+    "model2": "無障礙模式",
+    "startBtn": "開始點餐",
+    "text1": "點擊開始點餐",
+    "tip": "選擇點餐方式",
+    "way1": "堂食",
+    "way2": "外帶",
+    "tip2": "提示",
+    "tip3": "由於長時間無操作，系統將在 {{time}} 秒內返回主頁",
+    "storeCode": "門店編碼",
+    "storeCodeRequired": "門店編碼不能為空",
+    "authCode": "授權碼",
+    "authCodeRequired": "授權碼不能為空",
+    "exitAccessibilityModel": "退出無障礙模式",
+    "selectWay": "請選擇點餐方式",
+    "password": "密碼",
+    "passwordRequired": "密碼不能為空",
+    "resetConfig": "重置設定",
+    "resetSystem": "重置點餐系統",
+    "loginOut": "退出點餐系統",
+    "continue": "是否下單",
+    "orderDetails": "訂單詳情",
+    "continueText": "繼續點餐",
+    "addtip": "添加小費",
+    "percentage": "比例",
+    "fixed": "固定",
+    "clear": "清除",
+    "items": "總數",
+    "clearAll": "請確認是否清除購物車所有菜品?"
+  },
+  "menu": {
+    "promotion": "了解店鋪最新更新和",
+    "more": "更多",
+    "total": "合計",
+    "confirm": "確認",
+    "dineIn": "堂食",
+    "takeaway": "外帶",
+    "english": "English",
+    "storeName": "StoreName",
+    "storeActivities": "店鋪活動",
+    "memberDay": "會員日",
+    "memberDayDesc": "每週三所有產品享受9折優惠",
+    "newProduct": "新品上市",
+    "newProductDesc": "嘗試我們的新招牌菜",
+    "discount": "特別優惠",
+    "discountDesc": "限時享受獨家折扣",
+    "holidaySpecial": "節日特惠",
+    "holidaySpecialDesc": "節假日和特殊場合特別優惠",
+    "detail": {
+      "grill": {
+        "title": "加料",
+        "required": "請選擇加料"
+      },
+      "spec": {
+        "title": "規格",
+        "required": "請選擇規格"
+      },
+      "addCart": "加入購物車",
+      "combo": {
+        "required": "請選擇輪次",
+        "title": "輪次組"
+      }
+    },
+    "count": "數量",
+    "cart": {
+      "deleteTip": "確定刪除商品嗎？",
+      "addRequired": "請加購商品",
+      "busTimeTip": "當前門店未營業，請在營業時間內下單",
+      "soldOutTip": "以下商品已售罄/下架，請刪除\n {{value}}"
+    }
+  },
+  "submit": {
+    "backToHome": "返回首頁",
+    "success_text1": "訂單提交成功",
+    "success_text2": "請到前台付款",
+    "totalTip": "小費合計",
+    "tip": "小費",
+    "orderNumber": "訂單號",
+    "takeNo": "取餐號",
+    "orderAmount": "訂單金額"
+  },
+  "storeInfo": {
+    "open": "營業中",
+    "closed": "已打烊",
+    "businessHours": "營業時間",
+    "contact": "聯繫方式"
+  },
+  "order": {
+    "name": "姓名",
+    "phone": "手機號",
+    "code": "驗證碼",
+    "codePattern": "請輸入6位數字驗證碼",
+    "codeRequired": "驗證碼不能為空",
+    "nameMaxLength": "姓名長度不能大於10個字符",
+    "nameMinLength": "姓名長度不能少於2個字符",
+    "namePattern": "姓名僅支持中文和字母",
+    "nameRequired": "姓名不能為空",
+    "phonePattern": "請輸入有效的手機號",
+    "phoneRequired": "手機號不能為空",
+    "verify": "請驗證聯繫方式和訂單詳細信息"
+  }
 }

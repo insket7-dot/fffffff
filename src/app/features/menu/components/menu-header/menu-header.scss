@@ -30,9 +30,10 @@
 }
 
 ::ng-deep .order-type ion-segment-button.segment-button-checked {
-  --color-checked: #fff;
-  --indicator-color: #E97011;
+  --color-checked: #fff !important;
+  --indicator-color: #E97011 !important;
   border-color: #E97011 !important;
+  --background-checked: var(--app-primary-color) !important;
 
 }
 
