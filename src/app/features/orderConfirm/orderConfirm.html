@@ -18,7 +18,7 @@
         <span class="verify">{{"order.verify" | translate}}</span>
         <div class="store_div">
             <div class="store_name">StoreName</div>
-            <div class="store_info">
+            <div class="store_info" (click)="navigateToStoreDetail()" >
                 <ion-icon name="location"></ion-icon> <span>asdasdasd</span>
                 <ion-icon name="chevron-forward-outline"></ion-icon>
             </div>
@@ -89,4 +89,17 @@
             </div>
         </form>
     </div>
+
+
+    @if(selectedWayValue() === OrderMode.TAKE_OUT) {
+        <div class="take_way_time">
+            <span>TakeWay Time</span>
+            <span class="select_time" (click)="openTimeSelect()" >select Time
+
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+
+            </span>
+        </div>
+
+    }
 </ion-content>

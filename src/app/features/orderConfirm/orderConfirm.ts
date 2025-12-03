@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 import { PriceI18nPipe, I18nFieldPipe } from '@app/shared/pipes/i18n-field.pipe';
 import { AppUrlService } from '@app/shared/services/util/app.url.service';
-import { IonicModule, ToastController } from '@ionic/angular';
+import { IonicModule, ToastController, ModalController } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomeService } from '@/app/features/home/service/home.service';
 import { wayList as diningWayList } from '@/app/shared/constants/menu.constants';
@@ -13,6 +13,8 @@ import { ModelStateService } from '@app/shared/services/data/model-state.service
 import { chevronBackOutline, location, chevronForwardOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { OrderMode } from '@app/shared/constants/menu.constants';
+import { TimeSelectComponent } from './components/time-select/time-select.component';
 
 @Component({
     selector: 'app-orderConfirm',
@@ -21,6 +23,8 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
     imports: [TranslateModule, CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
 })
 export class OrderConfirm extends AbstractAppPage implements OnInit {
+    OrderMode = OrderMode;
+
     wayList = computed(() => diningWayList);
 
     selectedWayValue = signal<string>('');
@@ -40,6 +44,8 @@ export class OrderConfirm extends AbstractAppPage implements OnInit {
         private modelStateService: ModelStateService,
         private fb: FormBuilder,
         private toastCtrl: ToastController,
+        private modalCtrl: ModalController,
+        private AppUrlService: AppUrlService,
     ) {
         super();
         addIcons({ chevronBackOutline, location, chevronForwardOutline });
@@ -68,6 +74,10 @@ export class OrderConfirm extends AbstractAppPage implements OnInit {
 
     onDiningTypeChange(event: any) {
         this.modelStateService.setCurWay(event.detail.value);
+    }
+
+    navigateToStoreDetail() {
+        this.router.navigate([this.AppUrlService.getPageUrlValue('PAGE_STORE_DETAIL')]);
     }
 
     back() {
@@ -133,5 +143,19 @@ export class OrderConfirm extends AbstractAppPage implements OnInit {
         }
 
         return '';
+    }
+
+    async openTimeSelect() {
+        const modal = await this.modalCtrl.create({
+            component: TimeSelectComponent,
+            cssClass: 'custom-time-modal',
+        });
+        await modal.present();
+
+        // 获取选择结果
+        const { data } = await modal.onWillDismiss();
+        if (data) {
+            console.log('选择的时间：', data); // { label: '今日(周三)', time: '立即取 | 10:48', isToday: true }
+        }
     }
 }

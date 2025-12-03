@@ -1,0 +1,46 @@
+// 弹窗整体样式（设置高度为全屏60%）
+:host {
+  --height: 60vh; // 关键：设置弹窗高度为视口高度的60%
+  display: block;
+  font-size: 16px; // 全局字体大小16px
+}
+
+// 内容区域样式（确保滚动正常）
+.time-select-content {
+  height: calc(60vh - 44px); // 减去头部toolbar高度（44px是Ionic toolbar默认高度）
+  overflow-y: auto; // 内容超出时可滚动
+}
+
+.time-list {
+  width: 100%;
+}
+
+.time-item {
+  display: flex;
+  padding: 16px 0; // 调整内边距，配合16px字体
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  align-items: center; // 垂直居中对齐
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.date-label {
+  flex: 0 0 90px; // 固定日期标签宽度，适配16px字体
+  font-size: 16px; // 明确设置字体大小
+  color: #666;
+}
+
+.time-content {
+  flex: 1;
+  font-size: 16px; // 明确设置字体大小
+  color: #333;
+  text-align: left;
+}
+
+// 调整头部标题和按钮字体大小
+ion-title, ion-button {
+  font-size: 16px !important; // 覆盖Ionic默认样式
+}

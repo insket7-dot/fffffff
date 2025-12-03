@@ -37,11 +37,11 @@ ion-content {
     align-items: center;
     border-radius: px-to-rem(10px);
     padding: px-to-rem(20px);
-    box-shadow: px-to-rem(12px) px-to-rem(80px) px-to-rem(6px) rgba(199,199,199,0.08);
+    box-shadow: px-to-rem(12px) px-to-rem(80px) px-to-rem(6px) rgba(199, 199, 199, 0.08);
 
-    .verify{
+    .verify {
         font-size: px-to-rem(14px);
-        color: #976F57;
+        color: #976f57;
         display: inline-block;
         text-align: left;
         width: 100%;
@@ -93,7 +93,7 @@ ion-content {
     //   flex: 0 0 80px;
     width: px-to-rem(120px);
     font-size: px-to-rem(14px);
-    color: #2D2F32;
+    color: #2d2f32;
 
     .required {
         color: #ff0000;
@@ -116,9 +116,10 @@ ion-content {
 
 // 验证码按钮样式
 .code-btn {
-    width: px-to-rem(70px);
+    width: px-to-rem(110px);
     height: px-to-rem(36px);
     font-size: px-to-rem(12px);
+    padding: 0;
 }
 
 // 错误提示（在输入框下方）
@@ -128,4 +129,25 @@ ion-content {
     bottom: px-to-rem(-18px);
     font-size: px-to-rem(12px);
     color: var(--ion-color-danger);
+}
+
+.take_way_time {
+    width: px-to-rem(340px);
+    height: px-to-rem(60px);
+    border-radius: px-to-rem(10px);
+    font-size: px-to-rem(16px);
+    line-height: px-to-rem(60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 px-to-rem(10px);
+    background-color: #fce9db;
+    margin-top: px-to-rem(10px);
+
+    .select_time{
+        display: flex;
+        align-items: center;
+        font-size: px-to-rem(14px);
+        color: #2D2F32;
+    }
 }
