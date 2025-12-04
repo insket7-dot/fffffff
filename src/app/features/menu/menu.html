@@ -1,86 +1,82 @@
-@if(!showDetails()) {
+@if (!showDetails()) {
     <ion-content class="menu-container">
-    <!-- Header -->
-    <app-menu-header></app-menu-header>
+        <!-- Header -->
+        <app-menu-header></app-menu-header>
 
-    <!-- Main Content -->
-    <main class="menu-main">
-        <aside class="category-nav" #categoryNav>
-            <div class="category-list">
-                @for (category of menuData(); track category.categoryId) {
-                    <div
-                        class="category-item"
-                        [class.active]="currentCategory() === category.categoryId"
-                        (click)="selectCategory(category.categoryId)"
-                    >
-                        <!-- <span> {{ category | i18nField: 'categoryName' }}</span> -->
-                        <span> {{ category.categoryName }}</span>
-                    </div>
-                }
-            </div>
-        </aside>
+        <!-- Main Content -->
+        <main class="menu-main">
+            <aside class="category-nav" #categoryNav>
+                <div class="category-list">
+                    @for (category of menuData(); track category.categoryId) {
+                        <div
+                            class="category-item"
+                            [class.active]="currentCategory() === category.categoryId"
+                            (click)="selectCategory(category.categoryId)"
+                        >
+                            <!-- <span> {{ category | i18nField: 'categoryName' }}</span> -->
+                            <span> {{ category.categoryName }}</span>
+                        </div>
+                    }
+                </div>
+            </aside>
 
-
-        <section class="menu-content" #menuContent>
-            <div class="right">
-            <div class="right_block" >
-                @for (entry of currentMenu(); track entry.productId) {
-                    <!-- <p class="title" [id]="`category-${entry.productId}`" data-read>
+            <section class="menu-content" #menuContent>
+                <div class="right">
+                    <div class="right_block">
+                        @for (entry of currentMenu(); track entry.productId) {
+                            <!-- <p class="title" [id]="`category-${entry.productId}`" data-read>
                         - {{ entry.categoryName }} -
                     </p> -->
 
-                        <div class="dish" (click)="openDetail(entry)">
-                            <div class="dish_left"><img [src]="entry.imageUrl" alt="" /></div>
-                            <div class="dish_right">
-                                <div class="dish_name" data-read>
-                                    {{ entry | i18nField: 'productName' }}
-                                </div>
-                                <div class="dish_desc" data-read>
-                                    {{ entry | i18nField: 'description' }}
-                                </div>
-                                <div class="price">
-                                    <span data-read>
-                                        {{ entry.price | priceI18n }}
-                                        <span class="price-starting">{{
-                                            'app.common.starting' | translate
-                                        }}</span>
-                                    </span>
-                                    <div>
-                                        @if (entry.quantity > 0) {
-                                            <span
-                                                class="remove"
-                                                (click)="openCart(); $event.stopPropagation()"
-                                                >
-                                                <ion-icon name="remove-circle"></ion-icon>
-                                            </span>
-                                            <span>{{ entry.quantity || 0 }}</span>
-                                        } @else {
-                                            <span class="add"> </span>
-                                            <span></span>
-                                        }
-
-                                        <span class="add">
-                                             <ion-icon name="add-circle"></ion-icon>
-
+                            <div class="dish" (click)="openDetail(entry)">
+                                <div class="dish_left"><img [src]="entry.imageUrl" alt="" /></div>
+                                <div class="dish_right">
+                                    <div class="dish_name" data-read>
+                                        {{ entry | i18nField: 'productName' }}
+                                    </div>
+                                    <div class="dish_desc" data-read>
+                                        {{ entry | i18nField: 'description' }}
+                                    </div>
+                                    <div class="price">
+                                        <span data-read>
+                                            {{ entry.price | priceI18n }}
+                                            <span class="price-starting">{{
+                                                'app.common.starting' | translate
+                                            }}</span>
                                         </span>
+                                        <div>
+                                            @if (entry.quantity > 0) {
+                                                <span
+                                                    class="remove"
+                                                    (click)="openCart(); $event.stopPropagation()"
+                                                >
+                                                    <ion-icon name="remove-circle"></ion-icon>
+                                                </span>
+                                                <span>{{ entry.quantity || 0 }}</span>
+                                            } @else {
+                                                <span class="add"> </span>
+                                                <span></span>
+                                            }
+
+                                            <span class="add">
+                                                <ion-icon name="add-circle"></ion-icon>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+                    </div>
+                </div>
+            </section>
+        </main>
 
-                }
-            </div>
-        </div>
-        </section>
-
-    </main>
-
-    <!-- Footer Cart -->
-    <footer class="menu-footer" (click)="orderConfirm()">
-        go
-        <app-cart-summary></app-cart-summary>
-    </footer>
-</ion-content>
+        <!-- Footer Cart -->
+        <footer class="menu-footer" (click)="orderConfirm()">
+            <!-- go -->
+            <app-cart-summary></app-cart-summary>
+        </footer>
+    </ion-content>
 }
 
 @if (showDetails()) {

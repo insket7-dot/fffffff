@@ -22,11 +22,17 @@
 .order-type {
   display: flex;
   gap: px-to-rem(8px);
+  width: px-to-rem(170px);
 }
 
 ::ng-deep ion-segment{
     height: px-to-rem(36px);
     font-size: px-to-rem(20px);
+}
+
+::ng-deep ion-segment-button{
+    font-size: 12px;
+    // --padding-start: px-to-rem(15px);
 }
 
 ::ng-deep .order-type ion-segment-button.segment-button-checked {
@@ -311,4 +317,9 @@
     padding: 4px 8px;
     font-size: 10px;
   }
+}
+
+
+ion-icon{
+    font-size: px-to-rem(20px);
 }

@@ -41,7 +41,7 @@ export class Menu  extends AbstractAppPage implements OnInit {
     menuData = this.menuFacadeService.menuValue;
 
     currentCategory = computed(() => this.menuFacadeService.currentCategoryValue());
-    currentMenu = this.menuFacadeService.currentMenuValue;
+    currentMenu = computed(() => this.menuFacadeService.currentMenuValue());
 
     readonly showDetails = signal<boolean>(false);
 

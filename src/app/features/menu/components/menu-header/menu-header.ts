@@ -5,7 +5,7 @@ import { LanguageSelectorComponent } from '@app/shared/components/language-selec
 import { ModelStateService } from '@app/shared/services/data/model-state.service';
 import { OrderMode } from '@app/shared/constants/menu.constants';
 import { HomeService } from '@app/features/home/service/home.service';
-import { chevronForwardOutline } from 'ionicons/icons';
+import { chevronForwardOutline,searchOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { AbstractAppPage } from '@/app/shared/abstracts/abstract.app.page';
 import { AppUrlService } from '@app/shared/services/util/app.url.service';
@@ -33,7 +33,7 @@ export class MenuHeaderComponent extends AbstractAppPage {
         private AppUrlService: AppUrlService,
     ) {
         super();
-        addIcons({ chevronForwardOutline });
+        addIcons({ chevronForwardOutline,searchOutline });
         this.selectedWayValue.set(this.curWayValue());
 
     }
